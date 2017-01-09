@@ -1,0 +1,9 @@
+// export const EXPAND_SIDEBAR = 'EXPAND_SIDEBAR';
+// export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
+
+
+export default {
+    APP_LOADED: 'APP_LOADED',
+    EXPAND_SIDEBAR: 'EXPAND_SIDEBAR',
+    CLOSE_SIDEBAR: 'CLOSE_SIDEBAR'
+}

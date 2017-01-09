@@ -1,0 +1,30 @@
+@import '../../../styles/variables';
+
+.Sidebar {
+    width: 25%; //$sidebar-width;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    min-width: 150px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5px;
+    z-index: 1;
+    height: 100%;
+    //position: absolute;
+    overflow: auto;
+    transition: opacity ease-in 0.2s;
+    background-color: cornflowerblue;
+}
+
+.Sidebar-header {
+
+}
+
+.Sidebar-body {
+
+}
+
+.Sidebar-footer {
+
+}
