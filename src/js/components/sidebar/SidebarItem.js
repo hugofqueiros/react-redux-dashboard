@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
 import './SidebarItem.scss';
 
@@ -10,11 +11,15 @@ class SidebarItem extends React.Component {
     }
 
     render () {
+        const iconClasses = 'Sidebar-item-icon fa fa-' + this.props.icon;
+
         return (
+        <Link to={this.props.link}>
             <div className="Sidebar-item">
-                <div className="Sidebar-item-icon">{this.props.icon}</div>
+                <i className={iconClasses}></i>
                 <div className="Sidebar-item-title">{this.props.title}</div>
             </div>
+        </Link>
         );
     }
 }

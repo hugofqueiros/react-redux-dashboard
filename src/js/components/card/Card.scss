@@ -1,0 +1,26 @@
+.Card {
+    display: flex;
+    flex-direction: row;
+    min-height: 80px;
+    width: 100%;
+}
+
+.Card-header {
+    height: 30px;
+}
+
+.Card-header-icon {
+
+}
+
+.Card-header-title {
+
+}
+
+.Card-body {
+    min-height: 50px;
+}
+
+.Card-footer {
+    height: 30px;
+}

@@ -9,9 +9,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="Home">
-                <Sidebar hasHeader={true} hasFooter={true}/>
                 <Panel/>
-
             </div>
         );
     }

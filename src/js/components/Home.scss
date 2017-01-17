@@ -1,6 +1,8 @@
+@import "../../styles/variables";
+
 .Home {
     display: flex;
-    background-color: black;
+    background-color: $app-background-color;
     align-items: stretch;
     height: 100%;
     width: 100%;

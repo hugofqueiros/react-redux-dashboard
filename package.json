@@ -1,6 +1,6 @@
 {
   "name": "react-redux-dashboard",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,9 @@
     "remove:dist": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "check:deps": "david",
+    "update:deps": "david:update"
   },
   "repository": {
     "type": "git",
@@ -24,14 +26,19 @@
   "homepage": "https://github.com/hugofqueiros/react-redux-dashboard#readme",
   "private": true,
   "engines": {
-    "node": ">=4",
-    "npm": ">=2"
+    "node": ">=6",
+    "npm": ">=3"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "david": "^9.0.0",
+    "font-awesome": "4.7.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "normalize.css": "^5.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
@@ -57,8 +64,9 @@
     "cssnano": "^3.9.1",
     "enzyme": "^2.6.0",
     "html-webpack-plugin": "^2.24.1",
+    "less": "^2.7.2",
     "less-loader": "^2.2.3",
-    "node-sass": "^4.0.0",
+    "node-sass": "^4.2.0",
     "postcss-loader": "^1.2.1",
     "react-dev-utils": "^0.4.2",
     "redux-devtools": "^3.3.1",

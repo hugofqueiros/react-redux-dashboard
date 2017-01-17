@@ -1,12 +1,27 @@
+@import "../../../styles/variables";
+
 .Header {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 0 5px;
     height: 50px;
     width: 100%;
     order: 1;
-    background-color: beige;
+    background-color: $app-background-color;
+    border-bottom: 1px solid rgba(0,0,0,.14);
+    box-shadow: inset 0 2px 2px 0 rgba(0,0,0,.14),
+        inset -1px -1px 0px 0px rgba(0,0,0,.2),
+        inset 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.Header-menu,
+.Header-search {
+    background-color: $app-background-color;
+}
+
+.Header-title {
+    align-self: center;
 }
