@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import Home from './components/Home';
-import Overview from './components/overview/';
+import Home from './components/home';
+import Overview from './components/overview';
 import Panel from './components/panel/Panel';
 
 import NotFoundPage from './components/NotFound';

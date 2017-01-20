@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Header from '../components/header/Header';
 import Sidebar from '../components/sidebar/Sidebar';
 import Panel from '../components/panel/Panel';
+import Config from '../config';
+
 import * as UiActionsCreator from '../redux/actions/ui';
 
 import './App.scss';
@@ -32,6 +34,7 @@ const defaultStyles = {
 class App extends React.Component {
     constructor(props) {
         super(props);
+        this.appName = Config.appName;
     };
 
     componentWillMount() {
@@ -51,11 +54,12 @@ class App extends React.Component {
             //mainStyle.width = '100%';
             //mainStyle.transform = 'translateX(0%)';
             mainStyle.marginLeft = '0px';
+            mainStyle.width = 'calc(100% - 250px)';
 
         } else {
             //mainStyle.transform = 'translateX(-25%)';
             mainStyle.marginLeft = '-250px';
-
+            mainStyle.width = '100%';
             //mainStyle.width = '100%';
         }
 
@@ -65,7 +69,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Header
-                    appName={this.props.appName}/>
+                    appName={this.appName}/>
                 <Sidebar hasHeader={true} hasFooter={true}/>
                 <section className="Layout">
                     <div className="MainWrapper" style={mainStyle}>
@@ -74,6 +78,17 @@ class App extends React.Component {
                 </section>
             </div>
         );
+
+        // return (
+        //     <div className="App">
+        //         <Header
+        //             appName={this.appName}/>
+        //         <Sidebar hasHeader={true} hasFooter={true}/>
+        //         <section className="Layout" style={mainStyle}>
+        //             {children}
+        //         </section>
+        //     </div>
+        // );
     }
 }
 
