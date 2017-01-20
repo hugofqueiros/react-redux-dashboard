@@ -1,19 +1,15 @@
 @import '../../../styles/variables';
 
 .Sidebar {
-    //width: 25%; //$sidebar-width;
     width: 250px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    //min-width: 150px;
     align-items: flex-start;
     justify-content: flex-start;
-    //padding: 5px 0;
     z-index: 99;
     height: 100%;
-    //position: absolute;
-    overflow: auto;
+    overflow: hidden;
     transition: opacity ease-in 0.2s;
     background-color: $app-background-color;
     border-right: 1px solid rgba(0,0,0,.14);
@@ -23,6 +19,7 @@
     display: flex;
     //padding: 5px;
     width: 100%;
+    text-decoration: none;
     //min-height: 25px;
 }
 
@@ -32,6 +29,8 @@
     //height: 25px;
     padding: 5px;
     border-bottom: 1px solid rgba(0,0,0,.14);
+    height: 60px;
+    align-items: center;
 }
 
 .Sidebar-body {
@@ -39,7 +38,9 @@
     //padding: 5px;
     display: flex;
     flex-direction: column;
+    padding: 0;
     align-items: flex-start;
+    margin: 0;
 }
 
 .Sidebar-footer {

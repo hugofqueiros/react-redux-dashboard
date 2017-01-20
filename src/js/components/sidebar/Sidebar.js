@@ -29,7 +29,6 @@ const defaultStyles = {
     overlay: {
         transition: 'opacity .3s ease-out, visibility .3s ease-out',
     }
-
 };
 
 class Sidebar extends React.Component {
@@ -70,16 +69,16 @@ class Sidebar extends React.Component {
         sidebarStyle = {...defaultStyles.sidebar, ...sidebarStyle};
 
         let items = this.props.sidebarItems.map((item, index) => {
-            return <SidebarItem key={index} title={item.name}
+            return <SidebarItem key={index} title={item.name} id={index}
                                 icon={item.icon} link={item.link} />
         });
 
         return (
             <aside className="Sidebar" style={sidebarStyle}>
                 {sidebarHeader}
-                <div className="Sidebar-body">
+                <ul className="Sidebar-body">
                     {items}
-                </div>
+                </ul>
                 {sidebarFooter}
             </aside>
         );
