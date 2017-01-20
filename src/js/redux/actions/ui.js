@@ -11,3 +11,9 @@ export function toogleSearchbar() {
         type: actionType.TOOGLE_SEARCHBAR
     }
 }
+
+export function activeSidebarItem(id) {
+    return {
+        type: actionType.ACTIVE_SIDEBARITEM, id
+    }
+}

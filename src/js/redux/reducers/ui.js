@@ -2,13 +2,13 @@ import actionType from '../actions/actionTypes';
 
 const defaultState = {
     sidebarOpen: true,
-    searchBarOpen: false
+    searchBarOpen: false,
+    activeSidebarItem: 0
 };
 
 export default (state = defaultState, action) => {
     switch (action.type) {
         case actionType.TOOGLE_SIDEBAR:
-            console.warn('wowoowowow');
             return {
                 ...state,
                 sidebarOpen: !state.sidebarOpen
@@ -18,6 +18,13 @@ export default (state = defaultState, action) => {
             return {
                 ...state,
                 searchBarOpen: !state.searchBarOpen
+            };
+            break;
+
+        case actionType.ACTIVE_SIDEBARITEM:
+            return {
+                ...state,
+                activeSidebarItem: action.id
             };
             break;
         // default:
