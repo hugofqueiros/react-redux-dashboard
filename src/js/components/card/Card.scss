@@ -1,26 +1,51 @@
 .Card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 80px;
     width: 100%;
+    //border: 1px solid #333333;
+    //min-width: 100px;
+    //max-width: 200px;
+    background: #ffffff;
+    border-radius: 2px;
+    font-size: 14px;
+    //margin-bottom: 16px;
+    color: #555;
+    margin: 5px 5px 16px 5px;
 }
 
 .Card-header {
     height: 30px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-bottom: solid #e7eaec 1px;
 }
 
 .Card-header-icon {
-
+    flex: none;
+    padding-right: 10px;
 }
 
 .Card-header-title {
-
+    font-weight:    600;
+    font-size:      14px;
+    text-transform: uppercase;
 }
 
 .Card-body {
     min-height: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
 }
 
 .Card-footer {
     height: 30px;
+    padding: 16px;
 }
