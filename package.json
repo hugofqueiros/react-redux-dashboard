@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
     "david": "^9.0.0",
     "font-awesome": "4.7.0",
     "lodash": "^4.17.4",
