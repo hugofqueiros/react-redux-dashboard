@@ -29,6 +29,12 @@ function fetchMetricsCompare(dispatch, metrics = []) {
     }
 }
 
+function resetMetrics() {
+    return {
+        type: actionType.RESET_METRICS
+    }
+}
+
 function fetchComp(dispatch, url) {
     axios({
         method: 'get',
@@ -79,4 +85,4 @@ function fetchMetricsCompareFailure(err) {
     }
 }
 
-export {fetchMetrics, fetchMetricsCompare};
+export {fetchMetrics, fetchMetricsCompare, resetMetrics};

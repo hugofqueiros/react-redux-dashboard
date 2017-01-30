@@ -3,7 +3,7 @@ import actionType from './actionTypes';
 
 const URL_ROOT_USER = 'https://api.github.com/users/hugofqueiros';
 
-export function fetchUser(dispatch) {
+function fetchUser(dispatch) {
     fetch(dispatch);
     return {
         type: actionType.FETCH_USER
@@ -34,5 +34,7 @@ function fetchUserFailure(err) {
         payload: err
     }
 }
+
+export {fetchUser};
 
 

@@ -1,9 +1,9 @@
 import actionType from './actionTypes';
 
-export function appLoaded() {
-    console.log('ACTION APPLOADED');
-
+function appLoaded() {
     return {
         type: actionType.APP_LOADED
     };
 }
+
+export {appLoaded};

@@ -1,20 +1,22 @@
 import actionType from './actionTypes';
 
-export function toogleSidebar() {
+function toogleSidebar() {
     return {
         type: actionType.TOOGLE_SIDEBAR
     };
 }
 
-export function toogleSearchbar() {
+function toogleSearchbar() {
     return {
         type: actionType.TOOGLE_SEARCHBAR
     }
 }
 
-export function activeSidebarItem(id) {
+function activeSidebarItem(id) {
     return {
         type: actionType.ACTIVE_SIDEBARITEM,
         payload: id
     }
 }
+
+export {toogleSidebar, toogleSearchbar, activeSidebarItem}

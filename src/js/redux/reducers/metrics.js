@@ -16,7 +16,6 @@ export default (state = defaultState, action) => {
                 ...state,
                 isFetching: true
             };
-
         }
         break;
         case actionType.FETCH_METRICS_SUCCESS: {
@@ -51,6 +50,7 @@ export default (state = defaultState, action) => {
                 dataComp: action.payload.data
             }
         }
+        break;
         case actionType.FETCH_METRICS_COMPARE_FAILURE: {
             return {
                 ...state,
@@ -58,6 +58,18 @@ export default (state = defaultState, action) => {
                 error: action.payload
             }
         }
+        break;
+        case actionType.RESET_METRICS: {
+            return {
+                ...state,
+                isFetching: false,
+                isFetchingComp: false,
+                data: {},
+                dataComp: {},
+                error: null
+            }
+        }
+        break;
     }
 
     return state;
