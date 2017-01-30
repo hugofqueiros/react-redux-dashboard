@@ -3,20 +3,29 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import * as UIActionsCreator from '../../redux/actions/ui';
+import * as UserActionsCreator from '../../redux/actions/user';
+import isEmpty from 'lodash/isEmpty';
 
 import SidebarItem from './SidebarItem';
 
 import './Sidebar.scss';
 
-const mapStateToProps = ({ ui }, { params }) => {
+console.log('UserActionsCreator', UserActionsCreator);
+
+const mapStateToProps = ({ ui, user }, { params }) => {
     return {
-        sidebarOpen: ui.sidebarOpen
+        sidebarOpen: ui.sidebarOpen,
+        activeSidebarItem: ui.activeSidebarItem,
+        isFetching: user.isFetching,
+        userData: user.data
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        UiActions: bindActionCreators(UIActionsCreator, dispatch)
+        UiActions: bindActionCreators(UIActionsCreator, dispatch),
+        UserActions: bindActionCreators(UserActionsCreator, dispatch),
+        dispatch: dispatch
     }
 };
 
@@ -36,19 +45,47 @@ class Sidebar extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        const dragSupport =  typeof window === 'object' && 'ontouchstart' in window;
-        console.log('ondragSupport :', dragSupport);
+    componentWillMount() {
+        //const dragSupport =  typeof window === 'object' && 'ontouchstart' in window;
     }
+
+    componentDidMount() {
+        if (isEmpty(this.props.userData)) {
+            let { dispatch } = this.props;
+            this.props.UserActions.fetchUser(dispatch);
+        }
+
+        //const dragSupport =  typeof window === 'object' && 'ontouchstart' in window;
+        //console.log('ondragSupport :', dragSupport);
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+    };
+
+    componentWillUpdate() {
+
+    };
 
     componentDidUpdate() {
 
-    }
+    };
+
+    componentWillUnmount() {
+
+    };
 
     render () {
+        //const sidebarHeader = null;
+
+        const userName =  this.props.userData ? this.props.userData.name : null;
+        const imgSrc = this.props.userData ? this.props.userData.avatar_url : null;
+
         const sidebarHeader = this.props.hasHeader ?
             <div className="Sidebar-header">
-                Sidebar Header
+                <img src={imgSrc}></img>
+                <span>{userName}</span>
+                <i className="fa fa-cog"></i>
             </div> :
             null;
 
@@ -59,8 +96,6 @@ class Sidebar extends React.Component {
             null;
 
         let sidebarStyle = {};
-
-        console.log('sidebar Open? ', this.props.sidebarOpen);
         if (this.props.sidebarOpen) {
             sidebarStyle.transform = 'translateX(0%)';
         } else {
@@ -69,7 +104,8 @@ class Sidebar extends React.Component {
         sidebarStyle = {...defaultStyles.sidebar, ...sidebarStyle};
 
         let items = this.props.sidebarItems.map((item, index) => {
-            return <SidebarItem key={index} title={item.name} id={index}
+            const isActive = (this.props.activeSidebarItem === index);
+            return <SidebarItem key={index} isActive={isActive} title={item.name} id={index}
                                 icon={item.icon} link={item.link} />
         });
 
