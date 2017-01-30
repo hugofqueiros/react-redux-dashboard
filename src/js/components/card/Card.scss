@@ -9,19 +9,20 @@
     background: #ffffff;
     border-radius: 2px;
     font-size: 14px;
-    //margin-bottom: 16px;
+    margin-bottom: 16px;
     color: #555;
-    margin: 5px 5px 16px 5px;
+    overflow: hidden;
+    cursor: default;
+    //margin: 5px 5px 16px 5px;
 }
 
 .Card-header {
     height: 30px;
     padding: 16px;
-    font-size: 20px;
-    font-weight: 400;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    overflow: hidden;
     border-bottom: solid #e7eaec 1px;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .Card-body {
-    min-height: 50px;
+    min-height: 100px;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -45,7 +46,59 @@
     padding: 16px;
 }
 
+.Card-body-chart {
+    //margin-right: 50px;
+    padding: 0;
+    div {
+        margin-right: 20px;
+        display: block;
+        width: calc(100% - 200px);
+    }
+}
+
+.Card-body-compare {
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 16px;
+}
+
+.Card-body-compare-values {
+    font-weight: 400;
+    color: #555;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    flex-direction: column;
+    :first-child {
+        color: #555;
+    }
+    :last-child {
+        font-size: 18px;
+        font-weight: 300;
+        color: #999;
+    }
+}
+
+.Card-body-compare-diff {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.Card-body-compare-diff.pos {
+    color: #5cb85c;
+}
+
+.Card-body-compare-diff.neg {
+    color: #F56323;
+}
+
 .Card-footer {
     height: 30px;
     padding: 16px;
+}
+
+@media all and (min-width: 768px) {
+    .Card-header {
+        font-size: 20px;
+    }
 }
