@@ -1,8 +1,8 @@
 import actionType from '../actions/actionTypes';
+import Config from '../../config/config';
 
 const defaultState = {
-    sidebarOpen: true,
-    searchBarOpen: false,
+    sidebarOpen: (!Config.isMobileDevice), //|| window.matchMedia("(min-width: 1024px)").matches),
     activeSidebarItem: 0
 };
 
@@ -14,17 +14,10 @@ export default (state = defaultState, action) => {
                 sidebarOpen: !state.sidebarOpen
             };
             break;
-        case actionType.TOOGLE_SEARCHBAR:
-            return {
-                ...state,
-                searchBarOpen: !state.searchBarOpen
-            };
-            break;
-
         case actionType.ACTIVE_SIDEBARITEM:
             return {
                 ...state,
-                activeSidebarItem: action.id
+                activeSidebarItem: action.payload
             };
             break;
         // default:

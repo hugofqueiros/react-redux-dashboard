@@ -1,4 +1,8 @@
-export default (state = {}, action) => {
+import actionType from '../actions/actionTypes';
+
+const defaultState = {};
+
+export default (state = defaultState, action) => {
     switch (action.type) {
         case 'LOGIN':
         case 'SIGNUP':
