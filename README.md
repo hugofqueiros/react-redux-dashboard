@@ -5,6 +5,16 @@
 ## Links
 -  Organization: http://jaysoo.ca/2016/02/28/organizing-redux-application/
 
+## APIs
+
+1. http://openweathermap.org/
+API call:
+
+http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID={APIKEY}
+
+2. Github
+https://api.github.com/users/hugofqueiros
+
 ## Dependencies
 
 - [react](): React is a JavaScript library for building user interfaces.
