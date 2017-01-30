@@ -14,6 +14,7 @@ export function toogleSearchbar() {
 
 export function activeSidebarItem(id) {
     return {
-        type: actionType.ACTIVE_SIDEBARITEM, id
+        type: actionType.ACTIVE_SIDEBARITEM,
+        payload: id
     }
 }

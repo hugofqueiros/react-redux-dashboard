@@ -1,13 +1,9 @@
 import actionType from './actionTypes';
 
-// export function toogleSidebar() {
-//     return {
-//         type: actionType.TOOGLE_SIDEBAR
-//     };
-// }
-//
-// export function toogleSearchbar() {
-//     return {
-//         type: actionType.TOOGLE_SEARCHBAR
-//     }
-// }
+export function appLoaded() {
+    console.log('ACTION APPLOADED');
+
+    return {
+        type: actionType.APP_LOADED
+    };
+}
