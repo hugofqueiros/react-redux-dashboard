@@ -4,91 +4,108 @@ import { connect } from 'react-redux';
 
 import Header from '../components/header/Header';
 import Sidebar from '../components/sidebar/Sidebar';
-import Panel from '../components/panel/Panel';
-import Config from '../config';
+import Loader from '../components/loader/Loader';
+
+import Config from '../config/config';
 
 import * as UiActionsCreator from '../redux/actions/ui';
+import * as CommonActionsCreator from '../redux/actions/common';
 
 import './App.scss';
 
 const mapStateToProps = state => ({
     appLoaded: state.common.appLoaded,
-    appName: state.common.appName,
-    sidebarOpen: state.common.sidebarOpen
+    sidebarOpen: state.ui.sidebarOpen,
+    pathname: state.routing.locationBeforeTransitions.pathname
 });
 
 const mapDispatchToProps = dispatch => {
     return {
-        UiActions: bindActionCreators(UiActionsCreator, dispatch)
+        UiActions: bindActionCreators(UiActionsCreator, dispatch),
+        CommonActions: bindActionCreators(CommonActionsCreator, dispatch)
     }
 };
 
 const defaultStyles = {
     transition: 'all .3s ease-out',
     WebkitTransition: 'all .3s ease-out',
-    msTransition: 'all .3s ease-out'//,
-    //backgroundColor: 'rgba(0,0,0,.02)'
-    //width: '100%'
+    msTransition: 'all .3s ease-out'
 };
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.appName = Config.appName;
+        this.mql = window.matchMedia("(min-width: 1024px)");
+        this.isMobile = Config.isMobileDevice;
     };
 
     componentWillMount() {
-        console.log('ComponentWillMount');
+        //this.mql = window.matchMedia("(min-width: 1024px)");
+        //this.isMobile = Config.isMobileDevice;
+
+        // change active sidebar item to the correct one on route path
+        Config.sidebarItems.forEach((item, index) => {
+            if(item.link === this.props.pathname) {
+                this.props.UiActions.activeSidebarItem(index);
+            }
+        });
+
     };
 
     componentDidMount() {
-        console.log('ComponentDidMount');
-    }
+        this.toogleAppLoad();
+    };
+
+    componentWillUpdate() {
+        //this.mql = window.matchMedia("(min-width: 1024px)");
+        //this.isMobile = Config.isMobileDevice;
+        this.mql = window.matchMedia("(min-width: 1024px)");
+        console.log('COMPONENT WILL UPDATE');
+    };
+
+    toogleAppLoad = () => {
+        this.props.CommonActions.appLoaded()
+    };
 
     render () {
-        let {children} = this.props;
+        if (this.props.appLoaded) {
+            let {children} = this.props;
+            let mainStyle = {};
+            if (this.mql.matches || !this.isMobile) {
+                if(this.props.sidebarOpen) {
+                    mainStyle.left = '250px';
+                    mainStyle.width = 'calc(100% - 250px)';
+                } else {
+                    mainStyle.left = '0px';
+                    mainStyle.width = '100%';
+                }
+            }
 
-        let mainStyle = {};
+            mainStyle = {...defaultStyles, ...mainStyle};
 
-        if(this.props.sidebarOpen) {
-            //mainStyle.width = '100%';
-            //mainStyle.transform = 'translateX(0%)';
-            mainStyle.marginLeft = '0px';
-            mainStyle.width = 'calc(100% - 250px)';
+            return (
+                <div className="App">
+                    <Header
+                        appName={this.appName}/>
 
-        } else {
-            //mainStyle.transform = 'translateX(-25%)';
-            mainStyle.marginLeft = '-250px';
-            mainStyle.width = '100%';
-            //mainStyle.width = '100%';
+                    <section className="MainWrapper" style={mainStyle}>
+                        {children}
+                    </section>
+                    <Sidebar hasHeader={true}
+                             hasFooter={true}
+                             sidebarItems={Config.sidebarItems}
+                    />
+                </div>
+            );
         }
-
-        mainStyle = {...defaultStyles, ...mainStyle};
-        console.log('mainStyle: ', mainStyle);
 
         return (
             <div className="App">
-                <Header
-                    appName={this.appName}/>
-                <Sidebar hasHeader={true} hasFooter={true}/>
-                <section className="Layout">
-                    <div className="MainWrapper" style={mainStyle}>
-                        {children}
-                    </div>
-                </section>
+                <Loader />
             </div>
-        );
+        )
 
-        // return (
-        //     <div className="App">
-        //         <Header
-        //             appName={this.appName}/>
-        //         <Sidebar hasHeader={true} hasFooter={true}/>
-        //         <section className="Layout" style={mainStyle}>
-        //             {children}
-        //         </section>
-        //     </div>
-        // );
     }
 }
 
