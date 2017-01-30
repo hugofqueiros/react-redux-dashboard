@@ -23,16 +23,11 @@ class CardHighcharts extends React.Component {
     }
 
     componentWillMount() {
-        console.log('component will mount');
-
         Highcharts.setOptions(hcConfig);
     }
 
     // When the DOM is ready, create the chart.
     componentDidMount() {
-
-        console.log('component did mount');
-
         // Extend Highcharts with modules
         if (this.props.modules) {
             this.props.modules.forEach(function (module) {
@@ -41,13 +36,10 @@ class CardHighcharts extends React.Component {
         }
         // Set container which the chart should render to.
         setTimeout(function(){
-
-
             this.chart = new Highcharts[this.props.type || 'Chart'](
                 this.props.container,
                 this.config
             );
-
         }.bind(this), 300);
 
         window.addEventListener('resize', debounce(function() {
