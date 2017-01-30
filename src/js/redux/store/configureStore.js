@@ -1,16 +1,21 @@
 import {createStore, compose, applyMiddleware} from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import ravenMiddleware from 'redux-raven-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import createLogger from 'redux-logger';
 import DevTools from '../../containers/DevTools';
-import { loadState, saveState } from '../../localStorage'
+import { loadState, saveState } from '../../utils/localStorage'
 import throttle from 'lodash/throttle';
+import config from '../../config/config';
+
+//import {crashReporter} from './crashLogMiddleware';
 
 const logger = createLogger();
 
 const configureStoreProd = (initialState) => {
     const middlewares = [
+        ravenMiddleware(config.sentry.endpoint),
         // thunk middleware can also accept an extra argument to be passed to each thunk action
         // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
         thunk,
@@ -24,6 +29,8 @@ const configureStoreProd = (initialState) => {
 
 const configureStoreDev = (initialState) => {
     const middlewares = [
+        //crashReporter,
+        //ravenMiddleware(config.sentry.endpoint),
         logger,
         reduxImmutableStateInvariant(),
         thunk,
