@@ -1,0 +1,57 @@
+.SocialBanner {
+    height: 350px;
+    margin-top: -10px;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+// all elements in front of image with z-index (all have to have position setted)
+.SocialBanner > * {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+}
+
+.SocialBanner img {
+    filter: sepia(.6) opacity(.5);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    //content: url('../../../img/Manhattan.jpg');
+    z-index: 0;
+}
+
+.SocialBanner-img-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 0;
+}
+
+.SocialBanner-img-container.preloader {
+    opacity: .2;
+}
+
+.SocialBanner-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    a {
+        color: #ffffff;
+    }
+}
