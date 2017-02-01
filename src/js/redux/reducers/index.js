@@ -6,6 +6,7 @@ import auth from './auth';
 import ui from './ui';
 import user from './user';
 import metrics from './metrics';
+import medium from './medium';
 
 export default combineReducers({
     routing: routerReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
     ui,
     user,
     auth,
-    metrics
+    metrics,
+    medium
 });
