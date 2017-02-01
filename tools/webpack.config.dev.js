@@ -70,8 +70,8 @@ export default {
                 removeAll : true
             },
             discardUnused : false,
-            mergeIdents   : false,
-            reduceIdents  : false,
+            mergeIndents  : false,
+            reduceIndents : false,
             safe          : true,
             sourcemap     : true
         })
