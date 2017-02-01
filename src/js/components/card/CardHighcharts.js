@@ -33,7 +33,6 @@ class CardHighcharts extends React.Component {
                 // }
             },
             xAxis: {
-                //categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                 type: 'datetime',
                 showFirstLabel: false,
                 tickInterval: 30.41667 * 24 * 3600 * 1000,
@@ -81,9 +80,6 @@ class CardHighcharts extends React.Component {
                     // }
                 }
             },
-            // series: [{
-            //     data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
-            // }]
             series: [{
                 name: 'visits',
                 data: series
@@ -151,7 +147,7 @@ CardHighcharts.propTypes = {
     chartType: PropTypes.oneOf(['area', 'arearange', 'areaspline',
         'areaslinerange', 'bar', 'boxplot', 'bubble', 'column',
         'columnrange', 'funnel', 'gauge', 'heatmap', 'line', 'pie', 'polygon',
-        'spline', 'solidgauge']),
+        'spline', 'solidgauge']).isRequired,
     container: PropTypes.string,
     options: PropTypes.object,
     data: PropTypes.object,

@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import CardCompare from './CardCompare';
 import CardHighcharts from './CardHighcharts';
+import CardGithub from './CardGithub';
+import CardMedium from './CardMedium';
 
 import './Card.scss';
 
@@ -28,43 +30,36 @@ const Card = (props) => {
 
     const body = () => {
         switch (props.type) {
+            case 'github':
+                return (
+                    <CardGithub {...props.data} />
+                );
+                break;
+            case 'medium':
+                return (
+                    <CardMedium {...props.data} />
+                );
             case 'compare':
                 return (<CardCompare
-                    value={props.data.value} comp={props.data.comp}/>
+                    value={props.data} comp={props.dataComp}/>
                 );
-
-                // const calc = (props.data.value - props.data.comp) / props.data.comp;
-                // const diffPercentage = (calc * 100).toFixed(1) + '%';
-                // console.log('DIFF: ', props.data.value, props.data.comp, diffPercentage);
-                //
-                // const diffClasses = (calc <= 0) ?
-                //     classnames('Card-body-compare-diff', 'neg') :
-                //     classnames('Card-body-compare-diff', 'pos');
-                //
-                // return (
-                //     <section className="Card-body Card-body-compare">
-                //         <div className="Card-body-compare-values">
-                //             <span>{props.data.value}</span>
-                //             <span>{props.data.comp}</span>
-                //         </div>
-                //         <div className={diffClasses}>
-                //             {diffPercentage}
-                //         </div>
-                //     </section>);
                 break;
-
             case 'chart':
                 return (
                     <section className="Card-body Card-body-chart">
-                        <CardHighcharts container="chart" options={{}}></CardHighcharts>
+                        <CardHighcharts
+                            container="chart" options={{}}
+                            data={props.data}
+                            dataComp={props.dataComp}
+                        ></CardHighcharts>
                     </section>
                 );
                 break;
             default:
                 return (
-                    <div className="Card-body">
+                    <section className="Card-body">
                         INSERT DATA
-                    </div>);
+                    </section>);
                 break;
         }
     };
@@ -86,7 +81,15 @@ Card.propTypes = {
     hasFooter: PropTypes.bool,
     icon: PropTypes.string,
     classes: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    data: PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.object
+    ]),
+    dataComp: PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.object
+    ])
 };
 
 Card.defaultProps = {
