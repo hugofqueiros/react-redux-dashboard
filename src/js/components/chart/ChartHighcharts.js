@@ -46,11 +46,11 @@ class ChartHighcharts extends React.Component {
 
         }.bind(this), 200);
 
-        window.addEventListener('resize', debounce(function() {
-            if(this.chart) {
-                this.chart.reflow();
-            }
-        }.bind(this), 300));
+        // window.addEventListener('resize', debounce(function() {
+        //     if(this.chart) {
+        //         this.chart.reflow();
+        //     }
+        // }.bind(this), 300), false);
     }
 
     componentWillUpdate() {
@@ -59,6 +59,7 @@ class ChartHighcharts extends React.Component {
 
     componentWillUnmount() {
         this.chart.destroy();
+        //window.removeEventListener('resize', debounce, false);
     }
 
     render() {
