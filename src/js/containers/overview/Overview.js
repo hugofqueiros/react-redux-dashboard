@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Card from '../../components/card/Card';
+import Loader from '../../components/loader/Loader';
 import Random from 'lodash/random';
 import isEmpty from 'lodash/isEmpty';
 
@@ -29,25 +30,6 @@ const mapDispatchToProps = (dispatch) => {
 class Overview extends React.Component {
     constructor(props) {
         super(props);
-
-        this.dummyData = {
-            dataVisits: {
-                value: Random(10000, 1000),
-                comp: Random(10000, 1000)
-            },
-            dataPage: {
-                value: Random(10000, 1000),
-                comp: Random(10000, 1000)
-            },
-            dataUsers: {
-                value: Random(10000, 1000),
-                comp: Random(10000, 1000)
-            },
-            dataSessions: {
-                value: Random(10000, 1000),
-                comp: Random(10000, 1000)
-            }
-        }
     };
 
     componentDidMount() {
@@ -77,32 +59,40 @@ class Overview extends React.Component {
                             type="compare"
                             title="visits"
                             icon="street-view"
-                            data={this.dummyData.dataVisits}
+                            data={this.props.data.visits.sum}
+                            dataComp={this.props.dataComp.visits.sum}
                         />
                         <Card
                             classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"
                             type="compare"
                             title="page views"
                             icon="street-view"
-                            data={this.dummyData.dataPage}
+                            data={this.props.data.pageviews.sum}
+                            dataComp={this.props.dataComp.pageviews.sum}
                         />
                         <Card
                             classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"
                             type="compare"
                             title="users"
                             icon="street-view"
-                            data={this.dummyData.dataUsers}
+                            data={this.props.data.users.sum}
+                            dataComp={this.props.dataComp.users.sum}
                         />
                         <Card
                             classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"
                             type="compare"
                             title="sessions"
                             icon="street-view"
-                            data={this.dummyData.dataSessions}
+                            data={this.props.data.users.sum}
+                            dataComp={this.props.dataComp.users.sum}
                         />
                         <Card
                             classes="col-xs-12"
                             type="chart"
+                            title="Visits Chart"
+                            icon="users"
+                            data={this.props.data.visits}
+                            dataComp={this.props.dataComp.visits}
                         />
                         <Card classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"/>
                         <Card classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"/>
@@ -111,7 +101,7 @@ class Overview extends React.Component {
             );
         } else {
             return (
-                <div>WOPWOWOWO</div>
+                <Loader></Loader>
             )
         }
 
