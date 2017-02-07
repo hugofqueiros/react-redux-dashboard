@@ -1,11 +1,22 @@
-.DatePicker {
+.Datepicker-container {
     display: flex;
     background-color: #fff;
     flex-direction: row;
     align-items: center;
 }
 
-.DatePicker-btn {
+.Datepicker-btn {
     background-color: #fff;
     margin-left: 10px;
+}
+
+.Datepicker {
+    //display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    //width: 500px;
+    //height: 300px;
+    z-index: 100;
+    background-color: white;
 }

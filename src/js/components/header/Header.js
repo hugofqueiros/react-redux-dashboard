@@ -6,7 +6,8 @@ import {Link} from 'react-router';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import * as UserActionsCreator from '../../redux/actions/user';
 
-import DatePicker from '../datepicker/DatePicker';
+import Clock from '../clock/Clock';
+import Datepicker from '../datepicker/Datepicker';
 
 import './Header.scss';
 
@@ -56,9 +57,9 @@ class Header extends React.Component {
                 <Link to="/" className="Header-title">
                     <h3>{this.props.appName}</h3>
                 </Link>
-                <div className="Header-datepicker-container">
-                    <DatePicker />
-                </div>
+                <Clock />
+                <Datepicker />
+
             </nav>
         );
     }

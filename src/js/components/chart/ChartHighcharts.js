@@ -6,31 +6,64 @@ import more from 'highcharts/highcharts-more';
 import higstock from 'highcharts/highstock';
 import { debounce } from '../../utils/utils';
 import hcConfig from '../../config/highchartsConfig';
+import {buildSeries, lineHighchartsOptions, pieHighchartsOptions} from '../../utils/chartUtils';
 
 class ChartHighcharts extends React.Component {
     constructor(props) {
         super(props);
-        this.config = {
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            series: [{
-                data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
-            }]
-        };
 
-        this.chart = null;
+        console.log('TYOE: ', this.props.chartType);
+
+        this.methods = {
+            lineHighchartsOptions: lineHighchartsOptions,
+            pieHighchartsOptions: pieHighchartsOptions
+        };
+        this.config = {};
     }
 
     componentWillMount() {
-        console.log('component will mount');
 
+        let options = this.methods[this.props.chartType + 'HighchartsOptions'](this.props.chartType);
+
+        switch (this.props.chartType) {
+            case 'line':
+                this.config = {
+                    ...options,
+                    series: [{
+                        name: this.props.chartSeriesNames[0],
+                        data: buildSeries(this.props.data.series)
+                    }, {
+                        name: this.props.chartSeriesNames[1],
+                        data: buildSeries(this.props.dataComp.series)
+                    }]
+                };
+                break;
+            case 'pie':
+                this.config = {
+                    ...options,
+                    series: [{
+                        name: 'visits',
+                        colorByPoint: true,
+                        data: [{
+                            name: this.props.chartSeriesNames[0],
+                            y: this.props.data
+                        }, {
+                            name: this.props.chartSeriesNames[1],
+                            y: this.props.dataComp,
+                            sliced: true,
+                            selected: true
+                        }]
+                    }]
+                };
+                break;
+        }
+
+        this.chart = null;
         Highcharts.setOptions(hcConfig);
     }
 
     // When the DOM is ready, create the chart.
     componentDidMount() {
-
         // Extend Highcharts with modules
         if (this.props.modules) {
             this.props.modules.forEach(function (module) {
@@ -39,18 +72,18 @@ class ChartHighcharts extends React.Component {
         }
         // Set container which the chart should render to.
         setTimeout(function(){
-            this.chart = new Highcharts[this.props.type || 'Chart'](
+            //this.chart = new Highcharts[this.props.type || 'Chart'](
+            this.chart = new Highcharts['Chart'](
                 this.props.container,
                 this.config
             );
-
-        }.bind(this), 200);
+        }.bind(this), 500);
 
         // window.addEventListener('resize', debounce(function() {
         //     if(this.chart) {
         //         this.chart.reflow();
         //     }
-        // }.bind(this), 300), false);
+        // }.bind(this), 800));
     }
 
     componentWillUpdate() {
@@ -58,18 +91,20 @@ class ChartHighcharts extends React.Component {
     }
 
     componentWillUnmount() {
-        this.chart.destroy();
-        //window.removeEventListener('resize', debounce, false);
+        if(this.chart) {
+            this.chart.destroy();
+        }
     }
 
     render() {
         const style = {
             width: '95%',
+            height: '100%',
             marginRight: '-40px'
         };
 
         return (
-            <div id={this.props.container} style={style} ref="chart"></div>
+            <section id={this.props.container} style={style} ref="chart"></section>
         );
     }
 }
@@ -78,15 +113,29 @@ ChartHighcharts.propTypes = {
     chartType: PropTypes.oneOf(['area', 'arearange', 'areaspline',
         'areaslinerange', 'bar', 'boxplot', 'bubble', 'column',
         'columnrange', 'funnel', 'gauge', 'heatmap', 'line', 'pie', 'polygon',
-        'spline', 'solidgauge']),
-    container: PropTypes.string,
+        'spline', 'solidgauge']).isRequired,
+    container: PropTypes.string.isRequired,
     options: PropTypes.object,
+    data: PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.object
+    ]).isRequired,
+    dataComp: PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.object
+    ]),
+    type: PropTypes.string.isRequired,
+    chartSeriesNames: PropTypes.array.isRequired
 };
 
 ChartHighcharts.defaultProps = {
+    type: null,
     chartType: 'line',
     container: 'chart',
-    options: {}
+    options: {},
+    data: {},
+    dataComp: {},
+    chartSeriesNames: []
 };
 
-export default CardHighcharts;
+export default ChartHighcharts;

@@ -27,7 +27,7 @@ const hcConfig = {
         }
     },
     exporting: {
-        enabled: false
+        enabled: true
     },
     title: {
         text: null,
@@ -39,7 +39,7 @@ const hcConfig = {
         text: null
     },
     legend: {
-        enabled: false
+        enabled: true
     },
     tooltip: {
         animation: true,
