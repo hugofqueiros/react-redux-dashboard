@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import CardCompare from './CardCompare';
-import CardHighcharts from './CardHighcharts';
+import ChartHighcharts from '../chart/ChartHighcharts';
 import CardGithub from './CardGithub';
 import CardMedium from './CardMedium';
+import CardRealTime from './CardRealTime';
 
 import './Card.scss';
 
@@ -14,7 +15,7 @@ const Card = (props) => {
 
             return (
                 <header className="Card-header">
-                    <i className={iconClasses}></i>
+                    <i className={iconClasses} />
                     <div className="Card-header-title">{props.title}</div>
                 </header>);
         }
@@ -44,14 +45,18 @@ const Card = (props) => {
                     value={props.data} comp={props.dataComp}/>
                 );
                 break;
-            case 'chart':
+
+            case 'realtime':
+                return (
+                    <CardRealTime />
+                );
+                break;
+            case 'highcharts':
                 return (
                     <section className="Card-body Card-body-chart">
-                        <CardHighcharts
-                            container="chart" options={{}}
-                            data={props.data}
-                            dataComp={props.dataComp}
-                        ></CardHighcharts>
+                        <ChartHighcharts
+                            {...props}
+                        />
                     </section>
                 );
                 break;
@@ -76,12 +81,16 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['github', 'medium', 'compare',
+        'highcharts', 'realtime']).isRequired,
+    chartType: PropTypes.string,
     hasHeader: PropTypes.bool,
     hasFooter: PropTypes.bool,
     icon: PropTypes.string,
     classes: PropTypes.string,
     title: PropTypes.string,
+    chartSeriesNames: PropTypes.array,
+    container: PropTypes.string,
     data: PropTypes.oneOfType([
         React.PropTypes.number,
         React.PropTypes.object
@@ -97,6 +106,9 @@ Card.defaultProps = {
     hasFooter: false,
     icon: 'street-view',
     type: '',
+    chartSeriesNames: [],
+    container: null,
+    chartType: '',
     classes: '',
     title: ''
 };
