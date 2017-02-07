@@ -1,4 +1,4 @@
-.u- &transition &--default {
+.u- #{if(&, "&", "*")}transition &--default {
     transition: all 0.3s ease-out;
 }
 
