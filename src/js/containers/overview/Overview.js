@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
-import Random from 'lodash/random';
 import isEmpty from 'lodash/isEmpty';
 
 import * as MetricsActionCreator from '../../redux/actions/metrics';
@@ -46,9 +45,6 @@ class Overview extends React.Component {
     }
 
     render() {
-        console.warn('woot: ', !this.props.isFetching, !this.props.isFetchingComp,
-            !isEmpty(this.props.data), !isEmpty(this.props.dataComp));
-
         if(!this.props.isFetching && !this.props.isFetchingComp &&
             !isEmpty(this.props.data) && !isEmpty(this.props.dataComp)) {
             return (
@@ -88,20 +84,21 @@ class Overview extends React.Component {
                         />
                         <Card
                             classes="col-xs-12"
-                            type="chart"
+                            type="highcharts"
+                            container="visits-chart"
+                            chartType="line"
+                            chartSeriesNames={['visits', 'visits compare']}
                             title="Visits Chart"
                             icon="users"
                             data={this.props.data.visits}
                             dataComp={this.props.dataComp.visits}
                         />
-                        <Card classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"/>
-                        <Card classes="col-xs-12 col-sm-6 col-md-6 col-lg-3"/>
                     </div>
                 </div>
             );
         } else {
             return (
-                <Loader></Loader>
+                <Loader />
             )
         }
 

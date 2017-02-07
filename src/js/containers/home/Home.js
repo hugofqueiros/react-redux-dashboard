@@ -9,6 +9,8 @@ import Card from '../../components/card/Card';
 import SocialBanner from '../../components/socialbanner/SocialBanner';
 import Promise from 'bluebird';
 import async from 'async';
+import ListErrors from '../ListErrors';
+import Error from '../error/Error';
 
 import isEmpty from 'lodash/isEmpty';
 
@@ -16,9 +18,12 @@ import './Home.scss';
 
 const mapStateToProps = ({user, medium}) => {
     return {
-        isFetching: user.isFetching || medium.isFetching,
+        isFetching: (user.isFetching || medium.isFetching),
         userData: user.data,
-        mediumData: medium.data
+        mediumData: medium.data,
+        error: (medium.error || user.error),
+        errorMedium: medium.error,
+        errorUser: user.error
     }
 };
 
@@ -45,6 +50,14 @@ class Home extends React.Component {
     }
 
     render() {
+        if (this.props.errorMedium) {
+            return <Error errors={this.props.errorMedium} />;
+        }
+
+        if (this.props.errorUser) {
+            return <Error errors={this.props.errorUser} />;
+        }
+
         if(!this.props.isFetching && !isEmpty(this.props.userData) &&
             !isEmpty(this.props.mediumData)) {
             return (

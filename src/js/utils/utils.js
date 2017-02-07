@@ -27,9 +27,15 @@ const isDeviceMobile = () => {
     return isMobile.any();
 };
 
-const debounce = (func, wait, immediate) => {
-    console.log('debounce', func, wait, immediate);
+const isTouchDevice = () => {
+    // return !!(typeof window !== 'undefined' && 'ontouchstart' in window) ||
+    //     !!(typeof navigator !== 'undefined' && navigator.maxTouchPoints);
 
+    return (typeof window !== 'undefined' && 'ontouchstart' in window) ||
+        !!(typeof navigator !== 'undefined' && navigator.maxTouchPoints);
+};
+
+const debounce = (func, wait, immediate) => {
     let timeout;
     return () => {
         const args = arguments;
@@ -50,4 +56,4 @@ const debounce = (func, wait, immediate) => {
 
 
 
-export { isDeviceMobile, debounce };
+export { isDeviceMobile, isTouchDevice, debounce };

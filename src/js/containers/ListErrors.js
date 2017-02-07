@@ -2,19 +2,11 @@ import React from 'react';
 
 const ListErrors = (props) => {
     const render = () => {
-        if(errors) {
+        if(props.errors) {
             return (
-                <ul className="error-messages">
-                    {
-                        Object.keys(props.errors).map(key => {
-                            return (
-                                <li key={key}>
-                                    {key} {props.errors[key]}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
+                <section>
+
+                </section>
             );
         } else {
             return null;
@@ -25,3 +17,15 @@ const ListErrors = (props) => {
 };
 
 export default ListErrors;
+
+{/*<ul className="error-messages">
+    {
+        Object.keys(props.errors).map(key => {
+            return (
+                <li key={key}>
+                    {key} {props.errors[key]}
+                </li>
+            )
+        })
+    }
+</ul>*/}
