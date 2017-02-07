@@ -3721,6 +3721,10 @@ lodash.some@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
 
+lodash.throttle@^4.0.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
 lodash.union@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.union/-/lodash.union-4.6.0.tgz#48bb5088409f16f1821666641c44dd1aaae3cd88"
@@ -3961,7 +3965,7 @@ mobx@^2.3.4:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-2.7.0.tgz#cf3d82d18c0ca7f458d8f2a240817b3dc7e54a01"
 
-moment@^2.17.1:
+moment@>=1.6.0, moment@^2.17.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
@@ -4467,6 +4471,10 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
+object-assign@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.0.1.tgz#99504456c3598b5cad4fc59c26e8a9bb107fe0bd"
+
 object-assign@4.1.0, object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
@@ -4709,6 +4717,10 @@ path-type@^1.0.0:
 pbkdf2-compat@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pbkdf2-compat/-/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
+
+performance-now@~0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
 pify@^2.0.0:
   version "2.3.0"
@@ -5148,6 +5160,12 @@ querystringify@0.0.x:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
 
+raf@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.2.0.tgz#2aba9a09bb70f8c2e9094dc60ace7c374fadec7e"
+  dependencies:
+    performance-now "~0.2.0"
+
 randomatic@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.6.tgz#110dcabff397e9dcff7c0789ccc0a49adf1ec5bb"
@@ -5174,6 +5192,13 @@ rc@^1.0.1, rc@^1.1.6, rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-addons-shallow-compare@^15.4.2:
+  version "15.4.2"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.4.2.tgz#027ffd9720e3a1e0b328dcd8fc62e214a0d174a5"
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-base16-styling@^0.4.1:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/react-base16-styling/-/react-base16-styling-0.4.6.tgz#ac23cb19b278974d965003b88f06a038d790bc80"
@@ -5183,6 +5208,35 @@ react-base16-styling@^0.4.1:
     lodash.curry "^4.0.1"
     lodash.flow "^3.3.0"
     pure-color "^1.2.0"
+
+react-class@2.0.0, react-class@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-class/-/react-class-2.0.0.tgz#5a52fdc15d4d99738ebf2bf69db374ce82737797"
+  dependencies:
+    object-assign "^4.0.1"
+
+react-date-picker@^5.3.28:
+  version "5.3.28"
+  resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-5.3.28.tgz#b7baeee261c5c8dcb909973fb9788914ef07f518"
+  dependencies:
+    lodash.throttle "^4.0.1"
+    object-assign "4.0.1"
+    raf "3.2.0"
+    react-class "2.0.0"
+    react-field "2.0.2"
+    react-flex "2.2.7"
+    react-inline-block "2.0.0"
+    react-notify-resize "1.0.3"
+    react-style-normalizer "1.2.8"
+
+react-dates@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-6.0.0.tgz#539f2a89b5ef19fb70675ac4a387e273d384d548"
+  dependencies:
+    array-includes "^3.0.2"
+    classnames "^2.2.5"
+    react-moment-proptypes "^1.2.1"
+    react-portal "^3.0.0"
 
 react-deep-force-update@^1.0.0:
   version "1.0.1"
@@ -5227,6 +5281,19 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
+react-field@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-field/-/react-field-2.0.2.tgz#74e657944372dec0f8c9c8e340786e7bb761d2b5"
+  dependencies:
+    object-assign "^4.1.0"
+
+react-flex@2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/react-flex/-/react-flex-2.2.7.tgz#5c84e6c3affcbdc366edde4088f8d07303318fa8"
+  dependencies:
+    object-assign "^4.0.1"
+    react-class "^2.0.0"
+
 react-fuzzy@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/react-fuzzy/-/react-fuzzy-0.3.3.tgz#9f6775393cd03bbd3c977651771abe16c8b29a81"
@@ -5234,6 +5301,12 @@ react-fuzzy@^0.3.3:
     babel-runtime "^6.5.0"
     classnames "^2.2.3"
     fuse.js "^2.2.0"
+
+react-inline-block@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-inline-block/-/react-inline-block-2.0.0.tgz#7db7acd615705b54598702f18622de84af809ffa"
+  dependencies:
+    object-assign "^4.0.1"
 
 react-inspector@^1.1.0:
   version "1.1.2"
@@ -5278,6 +5351,22 @@ react-modal@^1.2.0, react-modal@^1.2.1:
     element-class "^0.2.0"
     exenv "1.2.0"
     lodash.assign "^4.2.0"
+
+react-moment-proptypes@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-moment-proptypes/-/react-moment-proptypes-1.2.1.tgz#f672cb07e49f2a32c08f2c02ac30cb255850dc0a"
+  dependencies:
+    moment ">=1.6.0"
+
+react-notify-resize@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-notify-resize/-/react-notify-resize-1.0.3.tgz#a1d7503aeefd27eecb6b3b5b35c7707be9422f48"
+  dependencies:
+    react-class "^2.0.0"
+
+react-portal@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-3.0.0.tgz#9304fce836e8a3216b22588f8dc91b447728f0ae"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -5326,6 +5415,10 @@ react-stubber@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-stubber/-/react-stubber-1.0.0.tgz#41ee2cac72d4d4fd70a63896da98e13739b84628"
   dependencies:
     babel-runtime "^6.5.0"
+
+react-style-normalizer@1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-style-normalizer/-/react-style-normalizer-1.2.8.tgz#7e84b3d25cea6225545c5af68963b225885344a2"
 
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
