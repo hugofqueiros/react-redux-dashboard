@@ -91,7 +91,7 @@ class Sidebar extends React.Component {
 
         const sidebarFooter = this.props.hasFooter ?
             <div className="Sidebar-footer">
-                Sidebar Footer
+                Copywrite Hugo Queiros
             </div> :
             null;
 

@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 class Visits extends React.Component {
     constructor(props) {
         super(props);
+        this.hasFetched = false;
     }
 
     componentDidMount() {
@@ -36,10 +37,11 @@ class Visits extends React.Component {
         const { dispatch } = this.props;
         this.props.MetricsActions.fetchMetrics(dispatch, metrics);
         this.props.MetricsActions.fetchMetricsCompare(dispatch, metrics);
+        this.hasFetched = true;
     }
 
     render() {
-        if(!this.props.isFetching && !this.props.isFetchingComp &&
+        if(this.hasFetched && !this.props.isFetching && !this.props.isFetchingComp &&
             !isEmpty(this.props.data) && !isEmpty(this.props.dataComp)) {
 
             return (

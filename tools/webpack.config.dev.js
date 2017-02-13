@@ -6,7 +6,7 @@ import cssnano from 'cssnano';
 
 export default {
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json']
+        extensions: ['', '.js', '.jsx', '.json', '.ico', '.png', '.gif']
     },
     debug: true,
     devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
@@ -51,7 +51,7 @@ export default {
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
             {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
             {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
-            {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
+            {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
             {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
             {
                 test: /(\.css|\.scss)$/,

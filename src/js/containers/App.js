@@ -93,7 +93,7 @@ class App extends React.Component {
                         {children}
                     </section>
                     <Sidebar hasHeader={true}
-                             hasFooter={true}
+                             hasFooter={false}
                              sidebarItems={Config.sidebarItems}
                     />
                 </div>

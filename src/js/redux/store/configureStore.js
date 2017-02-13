@@ -14,6 +14,8 @@ import config from '../../config/config';
 const logger = createLogger();
 
 const configureStoreProd = (initialState) => {
+    console.warn('Configure Store Production');
+
     const middlewares = [
         ravenMiddleware(config.sentry.endpoint),
         // thunk middleware can also accept an extra argument to be passed to each thunk action
@@ -31,7 +33,7 @@ const configureStoreDev = (initialState) => {
     const middlewares = [
         //crashReporter,
         //ravenMiddleware(config.sentry.endpoint),
-        logger,
+        //logger,
         reduxImmutableStateInvariant(),
         thunk,
     ];

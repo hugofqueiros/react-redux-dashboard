@@ -1,3 +1,5 @@
+import config from '../config/config';
+
 const isDeviceMobile = () => {
     const isMobile = {
         android: function() {
@@ -54,6 +56,16 @@ const debounce = (func, wait, immediate) => {
     };
 };
 
+// const getApiEndPoint = () => {
+//     switch (process.env.NODE_ENV) {
+//         case 'production':
+//             return config.api.host + config.api.root;
+//             break;
+//         default:
+//             return config.api.host + ':' + config.api.port + config.api.root;
+//             break;
+//     }
+// };
 
 
 export { isDeviceMobile, isTouchDevice, debounce };

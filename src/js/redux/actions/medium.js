@@ -3,7 +3,9 @@ import axios from 'axios';
 import Urijs from 'urijs';
 import isEmpty from 'lodash/isEmpty';
 
-const URL_ROOT_MEDIUM = 'http://localhost:4040/api/medium';
+import config from '../../config/config';
+
+const URL_ROOT_MEDIUM = config.api.endPoint + '/medium';
 
 const fetchMedium = (dispatch) => {
     fetch(dispatch);

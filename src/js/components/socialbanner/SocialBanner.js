@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 
 import './SocialBanner.scss';
+import '../../../img/Manhattan.jpg';
+import '../../../img/spinner.gif';
 
 class SocialBanner extends React.Component {
     constructor(props) {
@@ -43,7 +45,8 @@ class SocialBanner extends React.Component {
         };
 
         const mailto = 'mailto: ' + this.props.email;
-        const websiteUrl = this.props.blog.replace(/.*?:\/\//g, '').slice(0, -1);
+        const website = this.props.blog.replace(/.*?:\/\//g, ''); //.slice(0, -1);
+        const websiteUrl = 'https://' + website;
 
         const createMarkup = () => {
             return {__html: this.image.outerHTML}
@@ -92,7 +95,7 @@ class SocialBanner extends React.Component {
                     <hr className="divider"></hr>
                     <h3>
                         Website:&nbsp;
-                        <a href={websiteUrl} target="_blank">{websiteUrl}</a>
+                        <a href={websiteUrl} target="_blank">{website}</a>
                     </h3>
                 </div>
                 {renderImage()}

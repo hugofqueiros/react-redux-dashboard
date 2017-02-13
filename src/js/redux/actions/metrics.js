@@ -2,8 +2,9 @@ import actionType from '../actions/actionTypes';
 import axios from 'axios';
 import Urijs from 'urijs';
 import isEmpty from 'lodash/isEmpty';
+import config from '../../config/config';
 
-const URL_ROOT_METRICS = 'http://localhost:4040/api/metrics';
+const URL_ROOT_METRICS = config.api.endPoint + '/metrics';
 
 function buildUrl(metrics) {
     let uriBuild = new Urijs(URL_ROOT_METRICS);

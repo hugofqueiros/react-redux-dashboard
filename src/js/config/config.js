@@ -1,20 +1,18 @@
 import { isDeviceMobile } from '../utils/utils';
 
-console.log('PROCESS ENV: ', process.env.NODE_ENV);
-
 const checkEnv = () => {
     switch (process.env.NODE_ENV) {
         case 'development':
-            return 'localhost';
+            return 'http://localhost';
             break;
         case 'staging':
             return 'ssswhatever';
             break;
         case 'production':
-            return 'whatever';
+            return 'http://api.hugofqueiros.com';
             break;
         default:
-            return 'localhost';
+            return 'http://localhost';
             break;
     }
 };
@@ -22,16 +20,16 @@ const checkEnv = () => {
 const checkEnvPort = () => {
     switch (process.env.NODE_ENV) {
         case 'development':
-            return '4040';
+            return ':4040';
             break;
         case 'staging':
-            return '4040';
+            return ':4040';
             break;
         case 'production':
-            return '8083';
+            return '';
             break;
         default:
-            return '4040';
+            return ':4045';
             break;
     }
 };
@@ -52,20 +50,22 @@ const app = {
             icon: 'heart',
             name: 'Visits',
             link: '/visits'
-        }, {
-            icon: 'line-chart',
-            name: 'Charts',
-            link: '/charts'
-        }, {
-            icon: 'map',
-            name: 'Maps',
-            link: '/maps'
         }
+        // , {
+        //     icon: 'line-chart',
+        //     name: 'Charts',
+        //     link: '/charts'
+        // }, {
+        //     icon: 'map',
+        //     name: 'Maps',
+        //     link: '/maps'
+        // }
     ],
     api: {
         host: checkEnv(),
         port: checkEnvPort(),
         root: '/api',
+        endPoint: checkEnv() + checkEnvPort() + '/api',
         githubApi: 'https://api.github.com/users/hugofqueiros'
     },
     sentry: {
@@ -73,6 +73,7 @@ const app = {
     }
 };
 
+console.warn('PROCESS ENV: ', process.env.NODE_ENV, checkEnv());
 
 
 Object.freeze(app);

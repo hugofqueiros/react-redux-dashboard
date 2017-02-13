@@ -29,6 +29,11 @@ const mapDispatchToProps = (dispatch) => {
 class Overview extends React.Component {
     constructor(props) {
         super(props);
+        this.hasFetched = false;
+    };
+
+    componentWillMount() {
+
     };
 
     componentDidMount() {
@@ -42,11 +47,15 @@ class Overview extends React.Component {
         let { dispatch } = this.props;
         this.props.MetricsActions.fetchMetrics(dispatch, metrics);
         this.props.MetricsActions.fetchMetricsCompare(dispatch, metrics);
+        this.hasFetched = true;
     }
 
     render() {
-        if(!this.props.isFetching && !this.props.isFetchingComp &&
-            !isEmpty(this.props.data) && !isEmpty(this.props.dataComp)) {
+        console.log('is FETCHING: ', this.props.isFetching, this.props.isFetchingComp);
+
+        //if(this.hasFetched && !this.props.isFetching && !this.props.isFetchingComp) {
+        if(this.hasFetched && (this.props.isFetching === false) && (this.props.isFetchingComp === false) &&
+             !isEmpty(this.props.data) && !isEmpty(this.props.dataComp)) {
             return (
                 <div className="Overview container-fluid">
                     <div className="row">

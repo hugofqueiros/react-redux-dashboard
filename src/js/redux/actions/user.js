@@ -1,6 +1,8 @@
 import axios from 'axios';
 import actionType from './actionTypes';
+import config from '../../config/config';
 
+//const URL_ROOT_USER = config.api.endPoint + '/users/hugofqueiros';
 const URL_ROOT_USER = 'https://api.github.com/users/hugofqueiros';
 
 function fetchUser(dispatch) {
