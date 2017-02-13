@@ -19,6 +19,23 @@ const checkEnv = () => {
     }
 };
 
+const checkEnvPort = () => {
+    switch (process.env.NODE_ENV) {
+        case 'development':
+            return '4040';
+            break;
+        case 'staging':
+            return '4040';
+            break;
+        case 'production':
+            return '8083';
+            break;
+        default:
+            return '4040';
+            break;
+    }
+};
+
 const app = {
     appName: 'React Redux Dashboard',
     isMobileDevice: isDeviceMobile(),
@@ -47,7 +64,7 @@ const app = {
     ],
     api: {
         host: checkEnv(),
-        port: '4040',
+        port: checkEnvPort(),
         root: '/api',
         githubApi: 'https://api.github.com/users/hugofqueiros'
     },
