@@ -20,9 +20,9 @@ const buildSeries = (seq) => {
     return resultSeq;
 };
 
-const buildPieSeries = (data) => {
-
-};
+// const buildPieSeries = (data) => {
+//
+// };
 
 const pieHighchartsOptions = (chartType) => {
     return {

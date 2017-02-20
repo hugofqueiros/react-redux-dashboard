@@ -13,7 +13,6 @@ export default (state = defaultState, action) => {
                 ...state,
                 isFetching: true
             };
-            break;
         case actionType.FETCH_USER_SUCCESS:
             return {
                 ...state,
@@ -21,7 +20,6 @@ export default (state = defaultState, action) => {
                 data: action.payload.data,
                 error: null
             };
-            break;
         case actionType.FETCH_USER_FAILURE:
             return {
                 ...state,
@@ -29,7 +27,6 @@ export default (state = defaultState, action) => {
                 data: {},
                 error: action.payload.message
             };
-            break;
     }
 
     return state;

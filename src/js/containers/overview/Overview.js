@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
 import isEmpty from 'lodash/isEmpty';
@@ -30,11 +30,11 @@ class Overview extends React.Component {
     constructor(props) {
         super(props);
         this.hasFetched = false;
-    };
+    }
 
     componentWillMount() {
 
-    };
+    }
 
     componentDidMount() {
         const metrics = [

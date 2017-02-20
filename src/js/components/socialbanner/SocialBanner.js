@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 import './SocialBanner.scss';
 import '../../../img/Manhattan.jpg';
@@ -40,9 +40,9 @@ class SocialBanner extends React.Component {
         const style = {
             //backgroundImage: "url('img/Manhattan.JPG')",
         };
-        const imgStyle = {
-            //content: "url('img/Manhattan.JPG')"
-        };
+        // const imgStyle = {
+        //     //content: "url('img/Manhattan.JPG')"
+        // };
 
         const mailto = 'mailto: ' + this.props.email;
         const website = this.props.blog.replace(/.*?:\/\//g, ''); //.slice(0, -1);
@@ -79,7 +79,7 @@ class SocialBanner extends React.Component {
                 </div>
 
             )
-        }
+        };
 
         console.log('IMAGE: ', renderImage2());
 

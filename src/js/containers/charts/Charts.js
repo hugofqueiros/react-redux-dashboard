@@ -4,6 +4,8 @@ import Card from '../../components/card/Card';
 import './Charts.scss';
 
 const Charts = (props) => {
+    console.log('CHARTS: ', props);
+
     return (
         <div className="container-fluid">
             <div className="row">

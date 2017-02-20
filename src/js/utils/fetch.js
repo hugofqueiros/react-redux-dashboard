@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 const requests = (method, url, config) => {
+    console.log('config', config);
+
     if (method === ('get' || 'post' || 'put' || 'del')) {
         return (axios({
             method: method,

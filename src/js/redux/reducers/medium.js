@@ -15,7 +15,6 @@ export default (state = defaultState, action) => {
             }
 
         }
-        break;
         case actionType.FETCH_MEDIUM_SUCCESS: {
             return {
                 ...state,
@@ -24,7 +23,6 @@ export default (state = defaultState, action) => {
                 error: null
             }
         }
-        break;
         case actionType.FETCH_MEDIUM_FAILURE: {
             return {
                 ...state,

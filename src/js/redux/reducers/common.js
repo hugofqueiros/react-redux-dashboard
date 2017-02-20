@@ -12,7 +12,6 @@ export default (state = defaultState, action) => {
                 ...state,
                 appLoaded: true
             };
-            break;
     }
 
     return state;

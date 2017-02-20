@@ -8,10 +8,10 @@ import classnames from 'classnames';
 
 import './SidebarItem.scss';
 
-const mapStateToProps = ({ ui }) => {
+const mapStateToProps = () => {
     return {
 
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -46,10 +46,10 @@ const SidebarItem = (props) => {
 };
 
 SidebarItem.propTypes = {
-    icon: React.PropTypes.string,
-    title: React.PropTypes.string,
-    id: React.PropTypes.number.isRequired,
-    isActive: React.PropTypes.bool
+    icon: PropTypes.string,
+    title: PropTypes.string,
+    id: PropTypes.number.isRequired,
+    isActive: PropTypes.bool
 };
 
 SidebarItem.defaultProps = {

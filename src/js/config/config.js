@@ -4,16 +4,12 @@ const checkEnv = () => {
     switch (process.env.NODE_ENV) {
         case 'development':
             return 'http://localhost';
-            break;
         case 'staging':
             return 'ssswhatever';
-            break;
         case 'production':
             return 'http://api.hugofqueiros.com';
-            break;
         default:
             return 'http://localhost';
-            break;
     }
 };
 
@@ -21,16 +17,12 @@ const checkEnvPort = () => {
     switch (process.env.NODE_ENV) {
         case 'development':
             return ':4040';
-            break;
         case 'staging':
             return ':4040';
-            break;
         case 'production':
             return '';
-            break;
         default:
             return ':4045';
-            break;
     }
 };
 

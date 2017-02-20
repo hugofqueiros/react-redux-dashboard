@@ -13,13 +13,11 @@ export default (state = defaultState, action) => {
                 ...state,
                 sidebarOpen: !state.sidebarOpen
             };
-            break;
         case actionType.ACTIVE_SIDEBARITEM:
             return {
                 ...state,
                 activeSidebarItem: action.payload
             };
-            break;
         // default:
         //     return state;
     }

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -38,7 +38,7 @@ class App extends React.Component {
         this.appName = Config.appName;
         this.mql = window.matchMedia("(min-width: 1024px)");
         this.isMobile = Config.isMobileDevice;
-    };
+    }
 
     componentWillMount() {
         //this.mql = window.matchMedia("(min-width: 1024px)");
@@ -51,18 +51,18 @@ class App extends React.Component {
             }
         });
 
-    };
+    }
 
     componentDidMount() {
         this.toogleAppLoad();
-    };
+    }
 
     componentWillUpdate() {
         //this.mql = window.matchMedia("(min-width: 1024px)");
         //this.isMobile = Config.isMobileDevice;
         this.mql = window.matchMedia("(min-width: 1024px)");
         console.log('COMPONENT WILL UPDATE');
-    };
+    }
 
     toogleAppLoad = () => {
         this.props.CommonActions.appLoaded()

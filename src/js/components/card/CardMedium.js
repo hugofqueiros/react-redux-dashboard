@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 const CardMedium = (props) => {
     console.log('props', props);

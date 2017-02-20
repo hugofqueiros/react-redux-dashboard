@@ -1,5 +1,5 @@
 import Raven from 'raven-js';
-import Config from '../../config';
+import Config from '../../config/config';
 
 Raven.config(Config.sentry.endpoint).install();
 

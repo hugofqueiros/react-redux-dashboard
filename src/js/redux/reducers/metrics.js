@@ -1,5 +1,5 @@
 import actionType from '../actions/actionTypes';
-import Config from '../../config/config';
+//import Config from '../../config/config';
 
 const defaultState = {
     data: {},
@@ -17,7 +17,6 @@ export default (state = defaultState, action) => {
                 isFetching: true
             };
         }
-        break;
         case actionType.FETCH_METRICS_SUCCESS: {
             return {
                 ...state,
@@ -26,7 +25,6 @@ export default (state = defaultState, action) => {
                 error: null
             }
         }
-        break;
         case actionType.FETCH_METRICS_FAILURE: {
             return {
                 ...state,
@@ -35,14 +33,12 @@ export default (state = defaultState, action) => {
                 error: action.payload
             }
         }
-        break;
         case actionType.FETCH_METRICS_COMPARE: {
             return {
                 ...state,
                 isFetchingComp: true
             }
         }
-        break;
         case actionType.FETCH_METRICS_COMPARE_SUCCESS: {
             return {
                 ...state,
@@ -50,7 +46,6 @@ export default (state = defaultState, action) => {
                 dataComp: action.payload.data
             }
         }
-        break;
         case actionType.FETCH_METRICS_COMPARE_FAILURE: {
             return {
                 ...state,
@@ -58,7 +53,6 @@ export default (state = defaultState, action) => {
                 error: action.payload
             }
         }
-        break;
         case actionType.RESET_METRICS: {
             return {
                 ...state,
@@ -69,7 +63,6 @@ export default (state = defaultState, action) => {
                 error: null
             }
         }
-        break;
     }
 
     return state;

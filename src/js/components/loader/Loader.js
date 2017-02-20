@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 
 import './Loader.scss';
 
-const mapStateToProps = ({common}) => {
+const mapStateToProps = () => {
     return {
-    }
+    };
 };
 
 const defaultStyles = {

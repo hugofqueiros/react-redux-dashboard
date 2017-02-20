@@ -1,10 +1,5 @@
 import React, {PropTypes} from 'react';
-import classnames from 'classnames';
 import Highcharts from 'highcharts';
-import funnel from 'highcharts/modules/funnel';
-import more from 'highcharts/highcharts-more';
-import higstock from 'highcharts/highstock';
-import { debounce } from '../../utils/utils';
 import hcConfig from '../../config/highchartsConfig';
 import {buildSeries, lineHighchartsOptions, pieHighchartsOptions} from '../../utils/chartUtils';
 
@@ -104,7 +99,7 @@ class ChartHighcharts extends React.Component {
         };
 
         return (
-            <section id={this.props.container} style={style} ref="chart"></section>
+            <section id={this.props.container} style={style} ref="chart" />
         );
     }
 }

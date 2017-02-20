@@ -1,7 +1,7 @@
 import actionType from '../actions/actionTypes';
 import axios from 'axios';
-import Urijs from 'urijs';
-import isEmpty from 'lodash/isEmpty';
+//import Urijs from 'urijs';
+//import isEmpty from 'lodash/isEmpty';
 
 import config from '../../config/config';
 

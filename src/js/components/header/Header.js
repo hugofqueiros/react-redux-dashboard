@@ -11,7 +11,7 @@ import Datepicker from '../datepicker/Datepicker';
 
 import './Header.scss';
 
-const mapStateToProps = ({ui, user}, {params}) => {
+const mapStateToProps = ({ui, user}) => {
     return {
         sidebarOpen: ui.sidebarOpen,
         user: user.user
@@ -28,15 +28,15 @@ const mapDispatchToProps = (dispatch) => {
 class Header extends React.Component {
     constructor(props) {
         super(props);
-    };
+    }
 
     componentDidMount() {
         //this.props.UserActions.fetchUser();
-    };
+    }
 
     componentWillUpdate() {
         //console.log('componentWillUpdate', this.props);
-    };
+    }
 
     componentDidUpdate() {
         //console.log('componentDidUpdate', this.props);
@@ -44,14 +44,14 @@ class Header extends React.Component {
 
     toogleSidebar() {
         this.props.UiActions.toogleSidebar();
-    };
+    }
 
     render () {
         return (
             <nav className="Header u-shadow">
                 <div className="Header-menu-container">
                     <button className="btn Header-menu" onClick={this.toogleSidebar.bind(this)}>
-                        <i className="fa fa-bars"></i>
+                        <i className="fa fa-bars" />
                     </button>
                 </div>
                 <Link to="/" className="Header-title">
@@ -66,7 +66,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-    appName: React.PropTypes.string
+    appName: PropTypes.string
 };
 
 Header.defaultProps = {

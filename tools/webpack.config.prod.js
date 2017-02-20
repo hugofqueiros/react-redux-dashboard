@@ -119,41 +119,6 @@ export default {
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff&name=[name].[ext]'},
             {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream&name=[name].[ext]'},
             {test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml&name=[name].[ext]'},
-            // {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
-            // {
-            //     test: /\.(jpe?g|png|gif|svg)$/i,
-            //     loaders: [
-            //         'file-loader?hash=sha512&digest=hex&name=img/[name].[ext]?[hash]',
-            //         'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-            //     ]
-            // },
-            // {
-            //     test: /\.(jpg|png|gif)$/,
-            //     loaders: [
-            //         'file-loader',
-            //         {
-            //             loader: 'image-webpack-loader',
-            //             query: {
-            //                 progressive: true,
-            //                 optimizationLevel: 7,
-            //                 interlaced: false,
-            //                 pngquant: {
-            //                     quality: '65-90',
-            //                     speed: 4,
-            //                 },
-            //             },
-            //         },
-            //     ],
-            // },
-
-            // {
-            //     test: /\.txt$/,
-            //     loader: 'file-loader?name=./text/[name].[ext]?[hash]'
-            // },
-            // {
-            //     test: /\.(jpe?g|png|gif|svg)$/i,
-            //     loader: "file-loader?name=img/img-[hash:6].[ext]?[hash]&context=src/img"
-            // },
             {test: /\.ico$/, loader: 'file-loader?name=[path][name].[ext]?[hash]'},
             {
                 test: /\.(jpe?g|png|gif)$/i,
@@ -171,7 +136,7 @@ export default {
         ]
     },
 
-    imgeWebpackLoader: {
+    imageWebpackLoader: {
         progressive: true,
         optimizationLevel: 9,
         interlaced: false,

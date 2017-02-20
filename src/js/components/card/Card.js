@@ -35,7 +35,6 @@ const Card = (props) => {
                 return (
                     <CardGithub {...props.data} />
                 );
-                break;
             case 'medium':
                 return (
                     <CardMedium {...props.data} />
@@ -44,13 +43,10 @@ const Card = (props) => {
                 return (<CardCompare
                     value={props.data} comp={props.dataComp}/>
                 );
-                break;
-
             case 'realtime':
                 return (
                     <CardRealTime />
                 );
-                break;
             case 'highcharts':
                 return (
                     <section className="Card-body Card-body-chart">
@@ -59,13 +55,11 @@ const Card = (props) => {
                         />
                     </section>
                 );
-                break;
             default:
                 return (
                     <section className="Card-body">
                         INSERT DATA
                     </section>);
-                break;
         }
     };
 

@@ -1,15 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+//import { withRouter } from 'react-router';
 import * as UserActionsCreator from '../../redux/actions/user';
 import * as MediumActionsCreator from '../../redux/actions/medium';
 import Loader from '../../components/loader/Loader';
 import Card from '../../components/card/Card';
 import SocialBanner from '../../components/socialbanner/SocialBanner';
-import Promise from 'bluebird';
-import async from 'async';
-import ListErrors from '../ListErrors';
+//import Promise from 'bluebird';
+//import async from 'async';
+//import ListErrors from '../ListErrors';
 import Error from '../error/Error';
 
 import isEmpty from 'lodash/isEmpty';
@@ -87,7 +87,7 @@ class Home extends React.Component {
         }
         else {
             return (
-                <Loader></Loader>
+                <Loader />
             )
         }
     }

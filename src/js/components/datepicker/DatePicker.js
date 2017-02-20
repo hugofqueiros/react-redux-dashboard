@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+// import {connect} from 'react-redux';
 // import {TransitionView, MultiMonthView, Footer} from 'react-date-picker';
-import {DateRangePicker} from 'react-dates';
+// import {DateRangePicker} from 'react-dates';
 
-import moment from 'moment';
+// import moment from 'moment';
 
 import './Datepicker.scss';
 // import 'react-date-picker/index.css'
@@ -18,7 +18,6 @@ class Datepicker extends React.Component {
     }
 
     toogleDatePicker() {
-        console.log('wowoowow');
 
         this.setState({
             isOpen: !this.state.isOpen,
@@ -69,7 +68,7 @@ class Datepicker extends React.Component {
         //     )
         // }
 
-        const { focusedInput, startDate, endDate } = this.state;
+        //const { focusedInput, startDate, endDate } = this.state;
         let datepickerAirbnb = null;
 
         // if(this.state.isOpen) {

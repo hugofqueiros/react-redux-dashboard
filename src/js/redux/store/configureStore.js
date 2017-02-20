@@ -4,7 +4,7 @@ import ravenMiddleware from 'redux-raven-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import createLogger from 'redux-logger';
-import DevTools from '../../containers/DevTools';
+//import DevTools from '../../containers/DevTools';
 import { loadState, saveState } from '../../utils/localStorage'
 import throttle from 'lodash/throttle';
 import config from '../../config/config';
@@ -33,7 +33,7 @@ const configureStoreDev = (initialState) => {
     const middlewares = [
         //crashReporter,
         //ravenMiddleware(config.sentry.endpoint),
-        //logger,
+        logger,
         reduxImmutableStateInvariant(),
         thunk,
     ];

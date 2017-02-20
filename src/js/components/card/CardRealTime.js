@@ -1,5 +1,4 @@
-import React, {PropTypes} from 'react';
-import classname from 'classnames';
+import React from 'react';
 import Random from 'lodash/random';
 
 class CardRealTime extends React.Component {
@@ -18,7 +17,7 @@ class CardRealTime extends React.Component {
             this.setState({
                 num: Random(0, 20)
             })
-        }, 10000)
+        }, 10000);
     }
 
     componentWillUnmount() {

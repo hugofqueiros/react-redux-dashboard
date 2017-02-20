@@ -12,7 +12,8 @@ import './Sidebar.scss';
 
 console.log('UserActionsCreator', UserActionsCreator);
 
-const mapStateToProps = ({ ui, user }, { params }) => {
+//const mapStateToProps = ({ ui, user }, { params }) => {
+const mapStateToProps = ({ ui, user }) => {
     return {
         sidebarOpen: ui.sidebarOpen,
         activeSidebarItem: ui.activeSidebarItem,
@@ -59,21 +60,21 @@ class Sidebar extends React.Component {
         //console.log('ondragSupport :', dragSupport);
     }
 
-    componentWillReceiveProps(nextProps) {
-
-    };
+    // componentWillReceiveProps(nextProps) {
+    //
+    // };
 
     componentWillUpdate() {
 
-    };
+    }
 
     componentDidUpdate() {
 
-    };
+    }
 
     componentWillUnmount() {
 
-    };
+    }
 
     render () {
         //const sidebarHeader = null;
@@ -122,10 +123,10 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.propTypes = {
-    hasHeader: React.PropTypes.bool.isRequired,
-    hasFooter: React.PropTypes.bool.isRequired,
-    width: React.PropTypes.number,
-    sidebarItems: React.PropTypes.array
+    hasHeader: PropTypes.bool.isRequired,
+    hasFooter: PropTypes.bool.isRequired,
+    width: PropTypes.number,
+    sidebarItems: PropTypes.array
 };
 
 Sidebar.defaultProps = {

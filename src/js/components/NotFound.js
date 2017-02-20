@@ -9,7 +9,7 @@ const NotFoundPage = () => {
             </h4>
             <Link to="/"> Go back to homepage </Link>
         </div>
-    )
+    );
 };
 
-export default NotFoundPage
+export default NotFoundPage;

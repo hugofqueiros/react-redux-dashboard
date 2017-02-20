@@ -2,6 +2,8 @@ import React from 'react';
 import Card from '../../components/card/Card';
 
 const Maps = (props) => {
+    console.log('MAPS: ', props);
+
     return (
         <div className="container-fluid">
             <div className="row">
