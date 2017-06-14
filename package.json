@@ -142,8 +142,10 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dashboard": "^0.3.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0",
-    "webpack-md5-hash": "^0.0.5"
+    "webpack-md5-hash": "^0.0.5",
+    "webpack-validator": "^2.3.0"
   }
 }
