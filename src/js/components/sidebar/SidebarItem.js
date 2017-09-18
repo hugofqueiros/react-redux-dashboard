@@ -37,7 +37,7 @@ const SidebarItem = (props) => {
     return (
         <li className={itemClasses()} onClick={activateSidebarItem}>
             <Link to={props.link}>
-                <i className={iconClasses}></i>
+                <i className={iconClasses}/>
                 <div className="Sidebar-item-title">{props.title}</div>
             </Link>
         </li>

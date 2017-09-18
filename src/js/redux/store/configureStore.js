@@ -33,7 +33,7 @@ const configureStoreDev = (initialState) => {
     const middlewares = [
         //crashReporter,
         //ravenMiddleware(config.sentry.endpoint),
-        logger,
+        //logger,
         reduxImmutableStateInvariant(),
         thunk,
     ];
