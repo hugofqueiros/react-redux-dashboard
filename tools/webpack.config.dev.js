@@ -6,12 +6,19 @@ import cssnano from 'cssnano';
 
 export default {
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json', '.ico', '.png', '.gif']
+        modules: [
+            'node_modules',
+            //path.resolve(__dirname, "app")
+        ],
+        extensions: ['.js', '.jsx', '.json', '.ico', '.png', '.gif'],
+        alias: {},
     },
-    debug: true,
+    watch: true,
+    cache: true,
+    //debug: true,
     devtool: 'eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-    noInfo: true, // set to false to see a list of every file being bundled.
-    headers: {'Access-Control-Allow-Origin': '*'},
+    //noInfo: true, // set to false to see a list of every file being bundled.
+    //headers: {'Access-Control-Allow-Origin': '*'},
     entry: [
         // must be first entry to properly set public path
         './src/webpack-public-path',
@@ -23,6 +30,16 @@ export default {
         path: path.resolve(__dirname, '../dist'), // Note: Physical files are only output by the production build task `npm run build`.
         publicPath: '/',
         filename: 'bundle.js'
+    },
+
+    performance: {
+        hints: "warning", // enum
+        maxAssetSize: 200000, // int (in bytes),
+        maxEntrypointSize: 400000, // int (in bytes)
+        assetFilter: function(assetFilename) {
+            // Function predicate that provides asset filenames
+            return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
+        }
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -41,45 +58,53 @@ export default {
         })
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loaders: ['babel-loader']
-            },
-            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
-            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-            {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
-            {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
+                exclude: [/node_modules/],
+                loader: 'babel-loader'
+            }, {
+                test: /\.eot(\?v=\d+.\d+.\d+)?$/,
+                loader: 'file-loader'
+            }
+
+            // {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+            // {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
+            // {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+            // {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
+            // {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
+            // {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
+            // {
+            //     test: /(\.css|\.scss)$/,
+            //     exclude: null,
+            //     loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
+            // },
+            // {test: /\.json$/, loader: "json"}
             {
-                test: /(\.css|\.scss)$/,
-                exclude: null,
-                loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
-            },
-            {test: /\.json$/, loader: "json"}
+                test: /(\.css|\.s[ac]ss)$/,
+                
+            }
         ]
-    },
-    postcss: ()=> [
-        autoprefixer({
-            browsers: [
-                '>1%',
-                'last 2 versions',
-                'Firefox ESR',
-                'not ie < 9', // React doesn't support IE8 anyway
-            ]}),
-        cssnano({
-            discardComments : {
-                removeAll : true
-            },
-            discardUnused : false,
-            mergeIndents  : false,
-            reduceIndents : false,
-            safe          : true,
-            sourcemap     : true
-        })
-    ]
+    }
+    // postcss: ()=> [
+    //     autoprefixer({
+    //         browsers: [
+    //             '>1%',
+    //             'last 2 versions',
+    //             'Firefox ESR',
+    //             'not ie < 9', // React doesn't support IE8 anyway
+    //         ]}),
+    //     cssnano({
+    //         discardComments : {
+    //             removeAll : true
+    //         },
+    //         discardUnused : false,
+    //         mergeIndents  : false,
+    //         reduceIndents : false,
+    //         safe          : true,
+    //         sourcemap     : true
+    //     })
+    // ]
 };
 
 
