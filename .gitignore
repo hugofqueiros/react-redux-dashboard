@@ -40,6 +40,8 @@ jspm_packages
 .idea
 *.swp
 .DS_STORE
+.vscode
+.storybook
 
 # Directories
 transpiled
