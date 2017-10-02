@@ -1,13 +1,14 @@
-import React, {PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router';
+//import {withRouter} from 'react-router';
 import {Link} from 'react-router';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import * as UserActionsCreator from '../../redux/actions/user';
 
 import Clock from '../clock/Clock';
-import Datepicker from '../datepicker/Datepicker';
+import Datepicker from '../datepicker/DatePicker';
 
 import './Header.scss';
 
@@ -25,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-class Header extends React.Component {
+class Header extends Component {
     constructor(props) {
         super(props);
     }
@@ -54,16 +55,17 @@ class Header extends React.Component {
                         <i className="fa fa-bars" />
                     </button>
                 </div>
-                <Link to="/" className="Header-title">
-                    <h3>{this.props.appName}</h3>
-                </Link>
+                <h3>{this.props.appName}</h3>
                 <Clock />
                 <Datepicker />
-
             </nav>
         );
     }
 }
+
+/*<Link to="/" className="Header-title">
+    <h3>{this.props.appName}</h3>
+</Link>*/
 
 Header.propTypes = {
     appName: PropTypes.string
@@ -73,4 +75,5 @@ Header.defaultProps = {
     appName: 'React Redux Dashboard'
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

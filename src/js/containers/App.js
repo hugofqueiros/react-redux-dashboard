@@ -1,6 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import {Route, Switch} from 'react-router-dom';
+
+import Home from './home/Home';
+import Overview from './overview/Overview';
+import Maps from './maps/Maps';
+import Visits from './visits/Visits';
+import Charts from './charts/Charts';
 
 import Header from '../components/header/Header';
 import Sidebar from '../components/sidebar/Sidebar';
@@ -15,15 +23,15 @@ import './App.scss';
 
 const mapStateToProps = state => ({
     appLoaded: state.common.appLoaded,
-    sidebarOpen: state.ui.sidebarOpen,
-    pathname: state.routing.locationBeforeTransitions.pathname
+    sidebarOpen: state.ui.sidebarOpen//,
+    //pathname: state.routing.locationBeforeTransitions.pathname
 });
 
 const mapDispatchToProps = dispatch => {
     return {
         UiActions: bindActionCreators(UiActionsCreator, dispatch),
         CommonActions: bindActionCreators(CommonActionsCreator, dispatch)
-    }
+    };
 };
 
 const defaultStyles = {
@@ -45,11 +53,12 @@ class App extends React.Component {
         //this.isMobile = Config.isMobileDevice;
 
         // change active sidebar item to the correct one on route path
-        Config.sidebarItems.forEach((item, index) => {
-            if(item.link === this.props.pathname) {
-                this.props.UiActions.activeSidebarItem(index);
-            }
-        });
+        //Config.sidebarItems.forEach((item, index) => {
+            //if(item.link === this.props.pathname) {
+                //this.props.UiActions.activeSidebarItem(index);
+            //}
+        //});
+        this.props.UiActions.activeSidebarItem(0);
 
     }
 
@@ -65,12 +74,11 @@ class App extends React.Component {
     }
 
     toogleAppLoad = () => {
-        this.props.CommonActions.appLoaded()
+        this.props.CommonActions.appLoaded();
     };
 
     render () {
         if (this.props.appLoaded) {
-            let {children} = this.props;
             let mainStyle = {};
             if (this.mql.matches || !this.isMobile) {
                 if(this.props.sidebarOpen) {
@@ -86,11 +94,15 @@ class App extends React.Component {
 
             return (
                 <div className="App">
-                    <Header
-                        appName={this.appName}/>
-
+                    <Header appName={this.appName}/>
                     <section className="MainWrapper" style={mainStyle}>
-                        {children}
+                        <Switch>
+                            <Route exact path="/overview" component={Overview} />
+                            <Route exact path="/visits" component={Visits} />
+                            <Route exact path="/charts" component={Charts} />
+                            <Route exact path="/maps" component={Maps} />
+                            <Route exact path="/" component={Home} />
+                        </Switch>
                     </section>
                     <Sidebar hasHeader={true}
                              hasFooter={false}
@@ -104,8 +116,7 @@ class App extends React.Component {
             <div className="App">
                 <Loader />
             </div>
-        )
-
+        );
     }
 }
 

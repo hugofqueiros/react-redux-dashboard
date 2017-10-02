@@ -5,7 +5,7 @@ import React from 'react';
 
 // import moment from 'moment';
 
-import './Datepicker.scss';
+import './DatePicker.scss';
 // import 'react-date-picker/index.css'
 
 class Datepicker extends React.Component {
@@ -14,7 +14,7 @@ class Datepicker extends React.Component {
 
         this.state = {
             isOpen: true
-        }
+        };
     }
 
     toogleDatePicker() {
@@ -94,7 +94,7 @@ class Datepicker extends React.Component {
                     <i className="fa fa-calendar" aria-hidden="true"></i>
                 </button>
             </div>
-        )
+        );
     }
 }
 

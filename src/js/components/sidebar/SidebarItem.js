@@ -1,7 +1,8 @@
-import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+//import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import classnames from 'classnames';
@@ -17,7 +18,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch) => {
     return {
         UiActions: bindActionCreators(UiActionsCreator, dispatch)
-    }
+    };
 };
 
 const SidebarItem = (props) => {
@@ -25,7 +26,6 @@ const SidebarItem = (props) => {
         props.UiActions.activeSidebarItem(props.id);
     };
 
-    //render () {
     const itemClasses = () => {
         if(props.isActive) {
             return classnames('Sidebar-item', 'active');
@@ -42,7 +42,6 @@ const SidebarItem = (props) => {
             </Link>
         </li>
     );
-    //}
 };
 
 SidebarItem.propTypes = {
@@ -58,4 +57,5 @@ SidebarItem.defaultProps = {
     isActive: false
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarItem));
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarItem));
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarItem);
