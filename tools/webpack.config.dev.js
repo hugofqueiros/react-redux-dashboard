@@ -66,7 +66,7 @@ export default {
             }, {
                 test: /\.eot(\?v=\d+.\d+.\d+)?$/,
                 loader: 'file-loader'
-            }
+            },
 
             // {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
             // {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
@@ -82,7 +82,7 @@ export default {
             // {test: /\.json$/, loader: "json"}
             {
                 test: /(\.css|\.s[ac]ss)$/,
-                
+
             }
         ]
     }
