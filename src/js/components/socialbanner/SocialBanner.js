@@ -16,7 +16,7 @@ class SocialBanner extends React.Component {
     }
 
     componentDidMount() {
-        this.image.src = 'img/Manhattan.jpg';
+        this.image.src = 'Manhattan.jpg';
         this.image.onload = this.handleImgLoaded.bind(this);
         this.image.onError = this.hangleImageError.bind(this);
     }
@@ -57,7 +57,7 @@ class SocialBanner extends React.Component {
                 return (
                 <div className="SocialBanner-img-container preloader">
                     <img
-                        src={'img/spinner.gif'}
+                        src={'spinner.gif'}
                     />
                 </div>
 

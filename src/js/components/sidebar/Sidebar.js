@@ -1,7 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+//import { withRouter } from 'react-router';
 import * as UIActionsCreator from '../../redux/actions/ui';
 import * as UserActionsCreator from '../../redux/actions/user';
 import isEmpty from 'lodash/isEmpty';
@@ -10,8 +11,6 @@ import SidebarItem from './SidebarItem';
 
 import './Sidebar.scss';
 
-console.log('UserActionsCreator', UserActionsCreator);
-
 //const mapStateToProps = ({ ui, user }, { params }) => {
 const mapStateToProps = ({ ui, user }) => {
     return {
@@ -19,7 +18,7 @@ const mapStateToProps = ({ ui, user }) => {
         activeSidebarItem: ui.activeSidebarItem,
         isFetching: user.isFetching,
         userData: user.data
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -27,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
         UiActions: bindActionCreators(UIActionsCreator, dispatch),
         UserActions: bindActionCreators(UserActionsCreator, dispatch),
         dispatch: dispatch
-    }
+    };
 };
 
 const defaultStyles = {
@@ -60,33 +59,15 @@ class Sidebar extends React.Component {
         //console.log('ondragSupport :', dragSupport);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //
-    // };
-
-    componentWillUpdate() {
-
-    }
-
-    componentDidUpdate() {
-
-    }
-
-    componentWillUnmount() {
-
-    }
-
     render () {
-        //const sidebarHeader = null;
-
         const userName =  this.props.userData ? this.props.userData.name : null;
         const imgSrc = this.props.userData ? this.props.userData.avatar_url : null;
 
         const sidebarHeader = this.props.hasHeader ?
             <div className="Sidebar-header">
-                <img src={imgSrc}></img>
+                <img src={imgSrc} />
                 <span>{userName}</span>
-                <i className="fa fa-cog"></i>
+                <i className="fa fa-cog" />
             </div> :
             null;
 
@@ -137,5 +118,6 @@ Sidebar.defaultProps = {
         {icon: 'car', name: 'Overview', link: '/overview'}]
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
 

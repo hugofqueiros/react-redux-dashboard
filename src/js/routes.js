@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import {Router, Route, Switch} from 'react-router-dom';
 
 import App from './containers/App';
 import Home from './containers/home/Home';
