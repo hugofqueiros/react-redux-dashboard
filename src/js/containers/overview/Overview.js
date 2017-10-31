@@ -1,7 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router';
 import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
 import isEmpty from 'lodash/isEmpty';
@@ -16,14 +15,14 @@ const mapStateToProps = ({ metrics }) => {
         isFetchingComp: metrics.isFetchingComp,
         data: metrics.data,
         dataComp: metrics.dataComp
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         MetricsActions: bindActionCreators(MetricsActionCreator, dispatch),
         dispatch: dispatch
-    }
+    };
 };
 
 class Overview extends React.Component {
@@ -108,14 +107,10 @@ class Overview extends React.Component {
         } else {
             return (
                 <Loader />
-            )
+            );
         }
 
     }
 }
-
-//export default Overview;
-
-//export default withRouter(connect(mapStateToProps, mapDispatchToProps))(Overview);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Overview);

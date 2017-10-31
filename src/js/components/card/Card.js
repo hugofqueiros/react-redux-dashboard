@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import CardCompare from './CardCompare';
 import ChartHighcharts from '../chart/ChartHighcharts';
@@ -86,12 +87,12 @@ Card.propTypes = {
     chartSeriesNames: PropTypes.array,
     container: PropTypes.string,
     data: PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.object
+        PropTypes.number,
+        PropTypes.object
     ]),
     dataComp: PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.object
+        PropTypes.number,
+        PropTypes.object
     ])
 };
 

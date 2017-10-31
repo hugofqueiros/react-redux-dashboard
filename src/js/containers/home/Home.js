@@ -7,9 +7,6 @@ import * as MediumActionsCreator from '../../redux/actions/medium';
 import Loader from '../../components/loader/Loader';
 import Card from '../../components/card/Card';
 import SocialBanner from '../../components/socialbanner/SocialBanner';
-//import Promise from 'bluebird';
-//import async from 'async';
-//import ListErrors from '../ListErrors';
 import Error from '../error/Error';
 
 import isEmpty from 'lodash/isEmpty';
@@ -24,7 +21,7 @@ const mapStateToProps = ({user, medium}) => {
         error: (medium.error || user.error),
         errorMedium: medium.error,
         errorUser: user.error
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -32,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
         UserActions: bindActionCreators(UserActionsCreator, dispatch),
         MediumActions: bindActionCreators(MediumActionsCreator, dispatch),
         dispatch: dispatch
-    }
+    };
 };
 
 class Home extends React.Component {
@@ -88,7 +85,7 @@ class Home extends React.Component {
         else {
             return (
                 <Loader />
-            )
+            );
         }
     }
 }

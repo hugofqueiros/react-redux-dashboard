@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Highcharts from 'highcharts';
 import hcConfig from '../../config/highchartsConfig';
 import {buildSeries, lineHighchartsOptions, pieHighchartsOptions} from '../../utils/chartUtils';
@@ -112,12 +113,12 @@ ChartHighcharts.propTypes = {
     container: PropTypes.string.isRequired,
     options: PropTypes.object,
     data: PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.object
+        PropTypes.number,
+        PropTypes.object
     ]).isRequired,
     dataComp: PropTypes.oneOfType([
-        React.PropTypes.number,
-        React.PropTypes.object
+        PropTypes.number,
+        PropTypes.object
     ]),
     type: PropTypes.string.isRequired,
     chartSeriesNames: PropTypes.array.isRequired

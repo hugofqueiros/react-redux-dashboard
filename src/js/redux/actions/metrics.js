@@ -19,7 +19,7 @@ function fetchMetrics(dispatch, metrics = []) {
     fetch(dispatch, url);
     return {
         type: actionType.FETCH_METRICS
-    }
+    };
 }
 
 function fetchMetricsCompare(dispatch, metrics = []) {
@@ -27,13 +27,13 @@ function fetchMetricsCompare(dispatch, metrics = []) {
     fetchComp(dispatch, url);
     return {
         type: actionType.FETCH_METRICS_COMPARE
-    }
+    };
 }
 
 function resetMetrics() {
     return {
         type: actionType.RESET_METRICS
-    }
+    };
 }
 
 function fetchComp(dispatch, url) {

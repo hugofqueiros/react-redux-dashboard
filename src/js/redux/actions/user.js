@@ -1,15 +1,13 @@
 import axios from 'axios';
 import actionType from './actionTypes';
-//import config from '../../config/config';
 
-//const URL_ROOT_USER = config.api.endPoint + '/users/hugofqueiros';
 const URL_ROOT_USER = 'https://api.github.com/users/hugofqueiros';
 
 function fetchUser(dispatch) {
     fetch(dispatch);
     return {
         type: actionType.FETCH_USER
-    }
+    };
 }
 
 function fetch(dispatch) {
@@ -27,14 +25,14 @@ function fetchUserSuccess(result) {
     return {
         type: actionType.FETCH_USER_SUCCESS,
         payload: result
-    }
+    };
 }
 
 function fetchUserFailure(err) {
     return {
         type: actionType.FETCH_USER_FAILURE,
         payload: err
-    }
+    };
 }
 
 export {fetchUser};

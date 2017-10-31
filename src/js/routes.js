@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, Switch} from 'react-router-dom';
+import { Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
 import Home from './containers/home/Home';
@@ -11,7 +11,7 @@ import Maps from './containers/maps/Maps';
 import NotFoundPage from './components/NotFound';
 
 export default (
-    <Route path='/' component={App}>
+    <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/overview" component={Overview} />
         <Route path="/visits" component={Visits} />

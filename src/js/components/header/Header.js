@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 //import {withRouter} from 'react-router';
-import {Link} from 'react-router';
+//import {Link} from 'react-router';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import * as UserActionsCreator from '../../redux/actions/user';
 
@@ -16,14 +16,14 @@ const mapStateToProps = ({ui, user}) => {
     return {
         sidebarOpen: ui.sidebarOpen,
         user: user.user
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         UiActions: bindActionCreators(UiActionsCreator, dispatch),
         UserActions: bindActionCreators(UserActionsCreator, dispatch)
-    }
+    };
 };
 
 class Header extends Component {

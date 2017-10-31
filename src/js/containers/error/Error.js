@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Error.scss';
 
@@ -9,7 +10,7 @@ const Error = (props) => {
                 <section className="Error">
                     {props.errors}
                 </section>
-                )
+                );
         }
     };
 
@@ -17,9 +18,9 @@ const Error = (props) => {
 };
 
 Error.propTypes = {
-    errors: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.array
+    errors: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array
     ]).isRequired
 };
 

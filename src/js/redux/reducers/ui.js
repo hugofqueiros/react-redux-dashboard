@@ -18,8 +18,6 @@ export default (state = defaultState, action) => {
                 ...state,
                 activeSidebarItem: action.payload
             };
-        // default:
-        //     return state;
     }
 
     return state;

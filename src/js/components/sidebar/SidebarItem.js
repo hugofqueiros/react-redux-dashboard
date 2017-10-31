@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router';
 import { connect } from 'react-redux';
-//import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import classnames from 'classnames';
@@ -57,5 +56,4 @@ SidebarItem.defaultProps = {
     isActive: false
 };
 
-//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarItem));
 export default connect(mapStateToProps, mapDispatchToProps)(SidebarItem);
