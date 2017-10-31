@@ -28,7 +28,7 @@ class SocialBanner extends React.Component {
         );
     }
 
-    hangleImageError(e) {
+    hangleImageError() {
         this.setState({
                 isLoadingImg: true
             }
@@ -68,16 +68,16 @@ class SocialBanner extends React.Component {
             }
         };
 
-        const renderImage2 = () => {
-            return (
-                <div className="SocialBanner-img-container preloader">
-                    <img
-                        src={this.state.src}
-                        onLoad={onload}
-                    />
-                </div>
-            );
-        };
+        // const renderImage2 = () => {
+        //     return (
+        //         <div className="SocialBanner-img-container preloader">
+        //             <img
+        //                 src={this.state.src}
+        //                 onLoad={onload}
+        //             />
+        //         </div>
+        //     );
+        // };
 
         return (
             <div className="SocialBanner col-xs-12" style={style}>
