@@ -8,8 +8,6 @@ class ChartHighcharts extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log('TYOE: ', this.props.chartType);
-
         this.methods = {
             lineHighchartsOptions: lineHighchartsOptions,
             pieHighchartsOptions: pieHighchartsOptions
@@ -60,13 +58,11 @@ class ChartHighcharts extends React.Component {
 
     // When the DOM is ready, create the chart.
     componentDidMount() {
-        // Extend Highcharts with modules
         if (this.props.modules) {
             this.props.modules.forEach(function (module) {
                 module(Highcharts);
             });
         }
-        // Set container which the chart should render to.
         setTimeout(function(){
             //this.chart = new Highcharts[this.props.type || 'Chart'](
             this.chart = new Highcharts['Chart'](
@@ -74,16 +70,6 @@ class ChartHighcharts extends React.Component {
                 this.config
             );
         }.bind(this), 500);
-
-        // window.addEventListener('resize', debounce(function() {
-        //     if(this.chart) {
-        //         this.chart.reflow();
-        //     }
-        // }.bind(this), 800));
-    }
-
-    componentWillUpdate() {
-
     }
 
     componentWillUnmount() {

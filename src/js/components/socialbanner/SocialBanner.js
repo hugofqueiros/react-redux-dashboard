@@ -25,15 +25,14 @@ class SocialBanner extends React.Component {
         this.setState({
                 isLoadingImg: false
             }
-        )
+        );
     }
 
     hangleImageError(e) {
-        console.error('Loading image error', e);
         this.setState({
                 isLoadingImg: true
             }
-        )
+        );
     }
 
     render() {
@@ -61,11 +60,11 @@ class SocialBanner extends React.Component {
                     />
                 </div>
 
-                )
+                );
             } else {
                 return (
                     <div className="SocialBanner-img-container" dangerouslySetInnerHTML={createMarkup()} />
-                )
+                );
             }
         };
 
@@ -77,22 +76,19 @@ class SocialBanner extends React.Component {
                         onLoad={onload}
                     />
                 </div>
-
-            )
+            );
         };
-
-        console.log('IMAGE: ', renderImage2());
 
         return (
             <div className="SocialBanner col-xs-12" style={style}>
                 <div className="SocialBanner-info">
                     <h1>Hugo Queirós</h1>
                     <h3>Front-end web developer / IT Engineer/ Robotics Engineer</h3>
-                    <hr className="divider"></hr>
+                    <hr className="divider" />
                     <span>{this.props.location}</span>
                     <span>{this.props.company}</span>
                     <a href={mailto}>{this.props.email}</a>
-                    <hr className="divider"></hr>
+                    <hr className="divider" />
                     <h3>
                         Website:&nbsp;
                         <a href={websiteUrl} target="_blank">{website}</a>
@@ -100,7 +96,7 @@ class SocialBanner extends React.Component {
                 </div>
                 {renderImage()}
             </div>
-        )
+        );
     }
 }
 

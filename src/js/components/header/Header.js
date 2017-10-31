@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-//import {withRouter} from 'react-router';
-//import {Link} from 'react-router';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import * as UserActionsCreator from '../../redux/actions/user';
 
@@ -31,18 +29,6 @@ class Header extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        //this.props.UserActions.fetchUser();
-    }
-
-    componentWillUpdate() {
-        //console.log('componentWillUpdate', this.props);
-    }
-
-    componentDidUpdate() {
-        //console.log('componentDidUpdate', this.props);
-    }
-
     toogleSidebar() {
         this.props.UiActions.toogleSidebar();
     }
@@ -62,10 +48,6 @@ class Header extends Component {
         );
     }
 }
-
-/*<Link to="/" className="Header-title">
-    <h3>{this.props.appName}</h3>
-</Link>*/
 
 Header.propTypes = {
     appName: PropTypes.string

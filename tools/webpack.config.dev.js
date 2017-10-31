@@ -73,21 +73,22 @@ export default {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                query: {
+                    emitWarning: true,
+                    quiet: true
+                },
+                exclude: /node_modules|tests/
+            },
+            {
                 test: /\.jsx?$/,
                 exclude: [/node_modules/],
-                loaders: ['babel-loader']
+                loader: 'babel-loader'
             }, {
                 test: /\.eot(\?v=\d+.\d+.\d+)?$/,
                 loader: 'file-loader'
-            //},
-
-            // {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
-            // {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-            // {test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-            // {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
-            // {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
-            // {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-                //loader: 'file-loader?limit=100000'
             }, {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'url-loader?limit=10000&mimetype=application/font-woff'
@@ -98,10 +99,6 @@ export default {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
             },
-            // {
-            //     test: /\.(jpe?g|png|gif)$/i,
-            //     loader: 'url-loader?limit=10000000&mimetype=image/png'
-            // },
             {
                 test: /\.ico$/,
                 loader: 'url-loader?name=[name].[ext]'
@@ -110,13 +107,6 @@ export default {
                 //loader: 'file-loader?name=[name].[ext]'
                 loader: 'file-loader?limit=10000000&name=[name].[ext]?[hash]'
             },
-            // { test: /(\.css|\.scss|\.sass)$/, loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'] },
-            // {
-            //     test: /(\.css|\.scss)$/,
-            //     exclude: null,
-            //     loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
-            // },
-            // {test: /\.json$/, loader: "json"}
             {
                 test: /(\.css|\.s[ac]ss)$/,
                 use: [{
@@ -146,37 +136,9 @@ export default {
                     options: { sourceMap: true }
                 }]
 
-            },
-            {
-                test: /\.js$/,
-                loader: 'eslint-loader',
-                query: {
-                    emitWarning: true,
-                    quiet: true
-                },
-                exclude: /node_modules|tests/
             }
         ]
     }
-    // postcss: ()=> [
-    //     autoprefixer({
-    //         browsers: [
-    //             '>1%',
-    //             'last 2 versions',
-    //             'Firefox ESR',
-    //             'not ie < 9', // React doesn't support IE8 anyway
-    //         ]}),
-    //     cssnano({
-    //         discardComments : {
-    //             removeAll : true
-    //         },
-    //         discardUnused : false,
-    //         mergeIndents  : false,
-    //         reduceIndents : false,
-    //         safe          : true,
-    //         sourcemap     : true
-    //     })
-    // ]
 };
 
 

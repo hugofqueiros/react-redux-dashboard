@@ -50,9 +50,7 @@ class Overview extends React.Component {
     }
 
     render() {
-        console.log('is FETCHING: ', this.props.isFetching, this.props.isFetchingComp);
 
-        //if(this.hasFetched && !this.props.isFetching && !this.props.isFetchingComp) {
         if(this.hasFetched && (this.props.isFetching === false) && (this.props.isFetchingComp === false) &&
              !isEmpty(this.props.data) && !isEmpty(this.props.dataComp)) {
             return (

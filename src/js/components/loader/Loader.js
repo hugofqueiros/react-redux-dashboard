@@ -18,7 +18,6 @@ const defaultStyles = {
     }
 };
 
-
 const Loader = (props) => {
 
     let spinnerContainerStyle = {

@@ -39,7 +39,7 @@ class Datepicker extends React.Component {
     }
 
     pickDate() {
-        console.log('pick date');
+
     }
 
     render() {
@@ -69,7 +69,7 @@ class Datepicker extends React.Component {
         // }
 
         //const { focusedInput, startDate, endDate } = this.state;
-        let datepickerAirbnb = null;
+        // let datepickerAirbnb = null;
 
         // if(this.state.isOpen) {
         //     datepickerAirbnb = (
@@ -86,7 +86,6 @@ class Datepicker extends React.Component {
         //     )
         // }
 
-        console.log('this.datepciker: ', datepickerAirbnb);
 
         return (
             <div className="Datepicker-container">

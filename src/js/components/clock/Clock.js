@@ -3,7 +3,6 @@ import moment from 'moment';
 
 import './Clock.scss';
 
-
 class Clock extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +11,7 @@ class Clock extends React.Component {
     componentWillMount() {
         this.setState({
             time: moment()
-        })
+        });
     }
 
     componentDidMount() {
