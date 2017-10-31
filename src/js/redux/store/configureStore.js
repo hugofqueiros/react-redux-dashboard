@@ -3,9 +3,9 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import ravenMiddleware from 'redux-raven-middleware';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
-import createLogger from 'redux-logger';
+import {createLogger} from 'redux-logger';
 //import DevTools from '../../containers/DevTools';
-import { loadState, saveState } from '../../utils/localStorage'
+import { loadState, saveState } from '../../utils/localStorage';
 import throttle from 'lodash/throttle';
 import config from '../../config/config';
 
@@ -40,7 +40,6 @@ const configureStoreDev = (initialState) => {
 
     // TODO: add persistent state to the createStore
     const persistentState = loadState();
-
     console.log('INITIAL STATE AND PERSISTENT', initialState, persistentState);
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
@@ -48,12 +47,6 @@ const configureStoreDev = (initialState) => {
         applyMiddleware(...middlewares),
         )
     );
-
-    // const store = createStore(rootReducer, initialState, compose(
-    //     applyMiddleware(...middlewares),
-    //     //DevTools.instrument()
-    //     )
-    // );
 
     store.subscribe(throttle(() => {
         saveState(store.getState());

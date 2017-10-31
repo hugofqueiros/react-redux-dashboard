@@ -41,7 +41,12 @@ jspm_packages
 *.swp
 .DS_STORE
 .vscode
+.storybook
 
 # Directories
 transpiled
 dist
+
+#
+yarn.lock
+package-lock.json

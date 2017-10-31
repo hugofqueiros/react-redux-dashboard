@@ -1,21 +1,21 @@
 {
     "presets": [
-        "es2015",
+        ["env", {
+            "targets": {
+                "node": "current"
+            }
+        }],
         "react",
         "stage-1"
     ],
     "env": {
-        "development": {
-            "presets": [
-                "react-hmre"
-            ]
-        },
         "production": {
-            "plugins": [
-                "transform-react-constant-elements",
-                "transform-react-remove-prop-types"
-            ]
+            "comments": false,
+            "minified": true
         }
     },
-    "plugins": []
+    "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+    ]
 }

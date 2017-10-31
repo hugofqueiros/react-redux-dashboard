@@ -26,18 +26,18 @@ browserSync({
                     //compress: true,
                     publicPath: webpackConfig.output.publicPath, // Dev middleware can't access config, so publicPath is provided
                     // Webpack dev settings: http://webpack.github.io/docs/webpack-dev-middleware.html
-                    noInfo: false,
+                    noInfo: true,
                     quiet: false,
                     watchOptions: {
                         ignored: /node_modules/
                     },
                     stats: {
-                        assets: true,
+                        assets: false,
                         colors: true,
-                        version: true,
+                        version: false,
                         hash: false,
-                        timings: true,
-                        chunks: true,
+                        timings: false,
+                        chunks: false,
                         chunkModules: false
                     }
                 }

@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as UiActionsCreator from '../../redux/actions/ui';
 import classnames from 'classnames';
@@ -17,7 +17,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch) => {
     return {
         UiActions: bindActionCreators(UiActionsCreator, dispatch)
-    }
+    };
 };
 
 const SidebarItem = (props) => {
@@ -25,7 +25,6 @@ const SidebarItem = (props) => {
         props.UiActions.activeSidebarItem(props.id);
     };
 
-    //render () {
     const itemClasses = () => {
         if(props.isActive) {
             return classnames('Sidebar-item', 'active');
@@ -37,12 +36,11 @@ const SidebarItem = (props) => {
     return (
         <li className={itemClasses()} onClick={activateSidebarItem}>
             <Link to={props.link}>
-                <i className={iconClasses}></i>
+                <i className={iconClasses}/>
                 <div className="Sidebar-item-title">{props.title}</div>
             </Link>
         </li>
     );
-    //}
 };
 
 SidebarItem.propTypes = {
@@ -58,4 +56,4 @@ SidebarItem.defaultProps = {
     isActive: false
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarItem));
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarItem);

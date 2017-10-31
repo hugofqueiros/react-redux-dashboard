@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => {
     return {
         UiActions: bindActionCreators(UiActionsCreator, dispatch),
         CommonActions: bindActionCreators(CommonActionsCreator, dispatch)
-    }
+    };
 };
 
 const defaultStyles = {
@@ -41,16 +41,12 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        //this.mql = window.matchMedia("(min-width: 1024px)");
-        //this.isMobile = Config.isMobileDevice;
-
         // change active sidebar item to the correct one on route path
         Config.sidebarItems.forEach((item, index) => {
             if(item.link === this.props.pathname) {
                 this.props.UiActions.activeSidebarItem(index);
             }
         });
-
     }
 
     componentDidMount() {
@@ -58,19 +54,16 @@ class App extends React.Component {
     }
 
     componentWillUpdate() {
-        //this.mql = window.matchMedia("(min-width: 1024px)");
-        //this.isMobile = Config.isMobileDevice;
         this.mql = window.matchMedia("(min-width: 1024px)");
-        console.log('COMPONENT WILL UPDATE');
     }
 
     toogleAppLoad = () => {
-        this.props.CommonActions.appLoaded()
+        this.props.CommonActions.appLoaded();
     };
 
     render () {
         if (this.props.appLoaded) {
-            let {children} = this.props;
+            const {children} = this.props;
             let mainStyle = {};
             if (this.mql.matches || !this.isMobile) {
                 if(this.props.sidebarOpen) {
@@ -104,8 +97,7 @@ class App extends React.Component {
             <div className="App">
                 <Loader />
             </div>
-        )
-
+        );
     }
 }
 

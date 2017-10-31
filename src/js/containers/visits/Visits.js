@@ -5,7 +5,7 @@ import Card from '../../components/card/Card';
 import Loader from '../../components/loader/Loader';
 import isEmpty from 'lodash/isEmpty';
 import * as MetricsActionCreator from '../../redux/actions/metrics';
-import './Visits.scss'
+import './Visits.scss';
 
 const mapStateToProps = ({ metrics }) => {
     return {
@@ -13,14 +13,14 @@ const mapStateToProps = ({ metrics }) => {
         isFetchingComp: metrics.isFetchingComp,
         data: metrics.data,
         dataComp: metrics.dataComp
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         MetricsActions: bindActionCreators(MetricsActionCreator, dispatch),
         dispatch: dispatch
-    }
+    };
 };
 
 class Visits extends React.Component {

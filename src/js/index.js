@@ -7,11 +7,9 @@ import configureStore from './redux/store/configureStore';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import '../styles/style.scss';
-//import '../img/*';
 
 const MOUNTNODE = document.getElementById('app');
 const store = configureStore();
-// Use react-router-redux to
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(

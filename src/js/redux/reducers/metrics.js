@@ -23,7 +23,7 @@ export default (state = defaultState, action) => {
                 isFetching: false,
                 data: action.payload.data,
                 error: null
-            }
+            };
         }
         case actionType.FETCH_METRICS_FAILURE: {
             return {
@@ -31,27 +31,27 @@ export default (state = defaultState, action) => {
                 isFetching: false,
                 data: {},
                 error: action.payload
-            }
+            };
         }
         case actionType.FETCH_METRICS_COMPARE: {
             return {
                 ...state,
                 isFetchingComp: true
-            }
+            };
         }
         case actionType.FETCH_METRICS_COMPARE_SUCCESS: {
             return {
                 ...state,
                 isFetchingComp: false,
                 dataComp: action.payload.data
-            }
+            };
         }
         case actionType.FETCH_METRICS_COMPARE_FAILURE: {
             return {
                 ...state,
                 isFetchingComp: false,
                 error: action.payload
-            }
+            };
         }
         case actionType.RESET_METRICS: {
             return {
@@ -61,7 +61,7 @@ export default (state = defaultState, action) => {
                 data: {},
                 dataComp: {},
                 error: null
-            }
+            };
         }
     }
 
