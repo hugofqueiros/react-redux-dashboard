@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "node tools/nodeVersionCheck.js",
+    "no:preinstall": "node tools/nodeVersionCheck.js",
     "prestart": "npm run remove:dist",
     "start": "npm run transpile && node transpiled/devServer.js",
     "transpile": "babel tools -d transpiled",

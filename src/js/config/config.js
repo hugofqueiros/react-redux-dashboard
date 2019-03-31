@@ -7,7 +7,7 @@ const checkEnv = () => {
         case 'staging':
             return 'ssswhatever';
         case 'production':
-            return 'http://api.hugofqueiros.com';
+            return 'https://dry-escarpment-15846.herokuapp.com'; // 'http://api.hugofqueiros.com';
         default:
             return 'http://localhost';
     }

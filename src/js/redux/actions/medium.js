@@ -1,7 +1,6 @@
 import actionType from '../actions/actionTypes';
 import axios from 'axios';
 
-
 import config from '../../config/config';
 
 const URL_ROOT_MEDIUM = config.api.endPoint + '/medium';
